@@ -11,6 +11,7 @@ class EditBoard extends Component {
         super(props);
         this.state={
             data:this.props.data,
+            enableTomato:this.props.enableTomato,
         }
 
     }
@@ -125,8 +126,9 @@ class EditBoard extends Component {
                         name="title"
                         value={data.title}
                         onChange={this.editChange}
-                    />   
-                    
+                    /> 
+                    {this.props.enableTomato &&
+                    <div>
                     <label>Tomato Time {data.tomatoNumber!==0?data.tomatoNumber:null}</label>
                     <span>
                     <ThemeProvider theme={this.checkboxTheme}>
@@ -152,7 +154,7 @@ class EditBoard extends Component {
                     </Link>
                     
                     </span>
-
+                    </div>}
                     <label>Important</label>
                     <ThemeProvider theme={this.checkboxTheme}>
                     <Switch

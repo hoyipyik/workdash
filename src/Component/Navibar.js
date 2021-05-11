@@ -25,6 +25,11 @@ class Navibar extends Component {
                                 </Link>
                             </th>
                             <th>
+                                <Link to="/settings">
+                                    Setting
+                                </Link>
+                            </th>
+                            <th>
                                 <Link to="/about">
                                     About
                                 </Link>

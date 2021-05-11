@@ -89,6 +89,8 @@ const CountDown=(props) =>{
         color="primary"
         onChange={tomatoTagFunction}
       /> */}
+      {props.enableTomato &&
+      <div>
       {Times<=0?
       <div className='row'>
         All Done
@@ -96,7 +98,8 @@ const CountDown=(props) =>{
       <div className="row">
         {Math.ceil(Times)} Times Left
       </div>}
-
+      </div>
+      }
       <br/>
     </div>
   );

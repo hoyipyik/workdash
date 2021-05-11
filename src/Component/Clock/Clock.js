@@ -17,6 +17,7 @@ class Clock extends Component {
                     <h3>Count Down</h3>
                         <CountDown
                             Times = {this.props.Times}
+                            enableTomato={this.props.enableTomato}
                         />
                     </div>
                </div>

@@ -10,7 +10,7 @@ class Todo extends Component {
         super(props);
         this.state={
             index: 0,
-          
+            enableTomato:this.props.enableTomato,
             todoData:[
             {
                 id:0,
@@ -216,7 +216,10 @@ componentDidMount(){
                                 updateItemStatus={this.updateItemStatus}
                                 updateTomatoTimes={this.props.updateTomatoTimes}
                                 deleteItem={this.deleteItem}
+                                enableTomato={this.props.enableTomato}
                             />
+                            {!this.props.restrictMode &&
+                            <div>
                             <label style={{marginLeft: "1rem"}}>
                                 Item Delete
                             </label>
@@ -225,6 +228,7 @@ componentDidMount(){
                                 style={{marginLeft: "1rem"}}>
                                     Delete
                             </button>
+                            </div>}
                     </div> 
                    </div> }
                    <br/>
