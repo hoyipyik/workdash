@@ -10,7 +10,7 @@ class Navibar extends Component {
                     <thead>
                         <tr>
                             <th>
-                                <Link to="/">
+                                <Link to="/workdash">
                                     To do
                                 </Link>
                             </th>
