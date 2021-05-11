@@ -25,7 +25,7 @@ class App extends Component {
       <div className="container">
         <Navibar/>
         <Switch>
-          <Route exact path="/" target="_blank" rel="noopener noreferrer">
+          <Route path="/workdash" target="_blank" rel="noopener noreferrer">
             <Todo
               updateTomatoTimes={this.updateTomatoTimes}
             />
