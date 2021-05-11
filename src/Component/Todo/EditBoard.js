@@ -26,6 +26,17 @@ class EditBoard extends Component {
         },
       });
 
+      marks = [
+        {
+            value:0,
+            label:0,
+        },
+        {
+            value:5,
+            label:5,
+        }
+    ]
+
     componentDidMount(){
         this.setState({
             data:this.props.data,
@@ -86,16 +97,7 @@ class EditBoard extends Component {
         return `${value} Tomatos`;
       }
 
-      marks = [
-          {
-              value:0,
-              label:0,
-          },
-          {
-              value:5,
-              label:5,
-          }
-      ]
+      
 
     render() {
         const index = this.props.index;
@@ -169,12 +171,18 @@ class EditBoard extends Component {
                         value={data.body}
                         onChange={this.editChange}
                     />   
-                    <label></label>
-                    <input
-                        type="button"
-                        value="Save"
-                        onClick={this.editSubmit}
-                    />
+                    <span>
+                        <input
+                            type="button"
+                            value="Save"
+                            onClick={this.editSubmit}
+                        />
+                        {/* <button 
+                            onClick={this.props.deleteItem}
+                            style={{marginLeft: "1rem"}}>
+                                Delete
+                        </button> */}
+                    </span>
         
                 </form>
             </div>     

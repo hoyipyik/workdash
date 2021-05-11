@@ -148,6 +148,23 @@ componentDidMount(){
         })
     }
 
+    deleteItem = () =>{
+        const data = this.state.todoData;
+        const index = this.state.index;
+        let newData  = [];
+        let Data = [];
+        newData  = data.filter(item=>item.id!==index)
+        Data = newData.map((item,index)=>{
+            item.id = index;
+            return item;
+        })
+        // console.log("!!!!!!!!!!",Data);
+        if(window.confirm("Sure to Change?"))
+        this.setState({
+            todoData: Data,
+        })
+    }
+
     clearAll = ()=>{
         const newData = [];
         if(window.confirm("Sure to Change?"))
@@ -198,7 +215,16 @@ componentDidMount(){
                                 index={this.state.index}
                                 updateItemStatus={this.updateItemStatus}
                                 updateTomatoTimes={this.props.updateTomatoTimes}
+                                deleteItem={this.deleteItem}
                             />
+                            <label style={{marginLeft: "1rem"}}>
+                                Item Delete
+                            </label>
+                            <button 
+                                onClick={this.deleteItem}
+                                style={{marginLeft: "1rem"}}>
+                                    Delete
+                            </button>
                     </div> 
                    </div> }
                    <br/>
