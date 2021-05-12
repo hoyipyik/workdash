@@ -18,6 +18,8 @@ class Clock extends Component {
                         <CountDown
                             Times = {this.props.Times}
                             enableTomato={this.props.enableTomato}
+                            restrictMode={this.props.restrictMode}
+                            inlineTomato={this.props.inlineTomato}
                         />
                     </div>
                </div>

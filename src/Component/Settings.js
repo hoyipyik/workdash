@@ -28,6 +28,18 @@ class Settings extends Component {
         this.props.updateEnableTomato(enableTomato);
     }
 
+    inlineTomatoMethod = ()=>{
+        let inlineTomato = this.props.inlineTomato;
+        inlineTomato = !inlineTomato;
+        this.props.updateInlineTomato(inlineTomato);
+    }
+
+    encourageModeMethod =()=>{
+        let encourageMode = this.props.encourageMode;
+        encourageMode = !encourageMode;
+        this.props.updateEncourageMode(encourageMode);
+    }
+
     render() {
         return (
             <div className="container">
@@ -54,6 +66,30 @@ class Settings extends Component {
                             id="enableTomato"
                             color="primary"
                             onChange={this.enableTomatoMethod}
+                        />
+                    </ThemeProvider>
+                </span>
+                <span>
+                    <label>Inline Tomato Clock</label>
+                    <ThemeProvider theme={this.switchTheme}>
+                        <Switch
+                            checked={this.props.inlineTomato}
+                            name="inlineTomato"
+                            id="inlineTomato"
+                            color="primary"
+                            onChange={this.inlineTomatoMethod}
+                        />
+                    </ThemeProvider>
+                </span>
+                <span>
+                    <label>Encourage Mode</label>
+                    <ThemeProvider theme={this.switchTheme}>
+                        <Switch
+                            checked={this.props.encourageMode}
+                            name="encourageMode"
+                            id="encourageMode"
+                            color="primary"
+                            onChange={this.encourageModeMethod}
                         />
                     </ThemeProvider>
                 </span>

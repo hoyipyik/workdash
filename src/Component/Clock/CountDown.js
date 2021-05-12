@@ -10,6 +10,17 @@ const CountDown=(props) =>{
     const [isWork, setisWork] = useState(true);
     const [Times, setTimes] = useState(props.Times);
     // const [tomatoTag, setTomatoTag] = useState(true)
+    const [prevTimes,setPrevTimes] = useState(props.Times);
+
+    useEffect(()=>{
+      setPrevTimes(props.Times);
+    })
+
+    useEffect(() => {
+      if(prevTimes !== props.Times){
+        setTimes(props.Times);
+      }
+    })
 
     useEffect(() => {
       let interval = null;
@@ -37,7 +48,10 @@ const CountDown=(props) =>{
 
     const toggle = () => {
         setIsActive(!isActive);
-        
+        if(props.restrictMode){
+          setCounter(isWork?time:freeTime);
+          // setIsActive(false);
+        }
       }
     
     const reset = () => {
@@ -58,13 +72,14 @@ const CountDown=(props) =>{
       if(minutes===0 && seconds===0 && isWork===false)
         window.alert("Back to Work XD")
     })
-
+console.log(Times)
   return (
     <div className="app">
       <div className="time">
         {minutes}:{seconds}
       </div> 
       <div className="row">
+      {!props.restrictMode ?<span>
         <button 
             className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} 
             onClick={toggle}>
@@ -75,6 +90,13 @@ const CountDown=(props) =>{
             onClick={reset}>
                 Reset
         </button>
+        </span>:
+        <button
+            className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`}
+            onClick={toggle}>
+                {isActive ? 'Reset' : 'Start'}
+        </button>
+        }
         <button
           className="button"
           onClick={nextMode}>
@@ -91,6 +113,8 @@ const CountDown=(props) =>{
       /> */}
       {props.enableTomato &&
       <div>
+      {!props.inlineTomato &&
+      <div>
       {Times<=0?
       <div className='row'>
         All Done
@@ -100,6 +124,7 @@ const CountDown=(props) =>{
       </div>}
       </div>
       }
+      </div>}
       <br/>
     </div>
   );
