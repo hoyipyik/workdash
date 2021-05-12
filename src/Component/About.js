@@ -6,6 +6,7 @@ class About extends Component {
         return (
             <div className="container">
                 <h1>About</h1>
+                <hr/>
                 <p>This is a React App combiming Todo, Note Board and Tomato Clock together</p>
             </div>
         );
