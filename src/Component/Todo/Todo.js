@@ -71,15 +71,15 @@ componentDidMount(){
                 checked:true,
                 title:"Try to work 25h a day",
                 tomatoNumber:0,
-                body:"",
+                body:"You know Professor Sun will love it",
                 propoty:false,
             },
             {
                 id:1,
                 checked:true,
                 title:"Homework",
-                tomatoNumber:3,
-                body:"I have to work",
+                tomatoNumber:5,
+                body:"DDL is coming XD",
                 propoty:true,
             },
             {
@@ -87,8 +87,24 @@ componentDidMount(){
                 checked:false,
                 title:"Design a chip",
                 tomatoNumber:3,
-                body:"I have to work",
+                body:"We Chinese can crave a chip by hand, Cry Dutchess :<",
                 propoty:true, 
+            },
+            {
+                id:3,
+                checked:false,
+                title:"Sleep",
+                tomatoNumber:0,
+                body:'',
+                propoty:false,
+            },
+            {
+                id:4,
+                checked:false,
+                title:"Eat",
+                tomatoNumber:0,
+                body:"",
+                propoty:false,
             }
         ]
       })
