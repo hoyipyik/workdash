@@ -51,13 +51,13 @@ const CountDown=(props) =>{
   
     const minutes = Math.floor(counter / 60);
     const seconds = counter % 60;
-
-    if(minutes===0 && seconds===0 && isWork===true)
-      window.alert("Well Done, Take a Break :)")
+    useEffect(()=>{
+      if(minutes===0 && seconds===0 && isWork===true)
+        window.alert("Well Done, Take a Break :)")
     
-    
-    if(minutes===0 && seconds===0 && isWork===false)
-      window.alert("Back to Work XD")
+      if(minutes===0 && seconds===0 && isWork===false)
+        window.alert("Back to Work XD")
+    })
 
   return (
     <div className="app">
