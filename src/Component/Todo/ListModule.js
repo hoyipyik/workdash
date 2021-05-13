@@ -4,9 +4,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { blue, green } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
 
-
-// import Checkbox from "./CheckBox";
-
+//用函数模式定义了encouragemode下的勾选颜色为绿色的checkbox的样式
 const EncourageCheckbox = withStyles({
     root: {
     //   color: green[400],
@@ -17,21 +15,18 @@ const EncourageCheckbox = withStyles({
     checked: {},
   })((props) => <Checkbox color="default" {...props} />);
 
+//todo.js的第二部分的左边的任务展示区域的component
 
 class ListModule extends Component {
-    
+    //state的声明
     constructor(props){
         super(props);
         this.state={
             data:this.props.todoData,
             index:-1,
-            // checked:false,
         }
     }
-
-    
-    
-
+//checkbox的样式颜色的设定
     checkboxTheme = createMuiTheme({
         palette: {
           primary:{
@@ -45,14 +40,13 @@ class ListModule extends Component {
           }
         },
       });
-
+      //lifecycle函数 对index进行了数据初始化
     componentDidMount(){
         this.setState({
-            // data:this.props.todoData,
             index:this.props.index,
         })
     }
-
+    //lifecycle函数 对data进行更新， 同时如果有数据变动， 将数据传回到上一层中
     componentDidUpdate(prevProps, prevState){
         if(prevProps.todoData!==this.props.todoData){
             this.setState({
@@ -66,7 +60,7 @@ class ListModule extends Component {
             this.props.updateIndexStatus(this.state.index)
         }
     }
-
+    // 勾选取消勾选的反馈函数
     handleCheckboxChange = (index) => {
         let data = [...this.state.data];
         data[index].checked = !data[index].checked;
@@ -74,7 +68,7 @@ class ListModule extends Component {
             data: data,
         })
       }
-
+      //序号传递函数 点击条目之后传递对应的序号， 传给上一层， todo将会把它传给edit来显示对应条目的详细内容
     sendIndex = (index) =>{
         this.setState({
             index: index,
@@ -83,13 +77,10 @@ class ListModule extends Component {
 
     render() {
         const data = this.props.todoData;
-        // console.log(data);
-        // console.log("now map")
+        //对data数组进行了map遍历
         const rows = data.map((row, index)=>{
-            // console.log(row,"_____________________")
-            // console.log("Checked")
-            // console.log(row.checked)
             return(
+                //使用了key来重用列表
                 <tr key={index}>
                     <div onClick={()=>this.sendIndex(index)}>
                     <ThemeProvider theme={this.checkboxTheme}>
@@ -107,7 +98,7 @@ class ListModule extends Component {
                     }
                         </ThemeProvider>
                         <span
-                            // onClick={()=>this.sendIndex(index)}
+                            //重要的任务文字粗体显示 已经完成则是勾划掉的字体
                             style={{ textDecoration: row.checked ? "line-through" : null,
                             marginLeft:16, fontWeight: row.propoty ? "bold" : null,
                                 }}

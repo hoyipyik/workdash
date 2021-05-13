@@ -4,9 +4,9 @@ import InlineTomato from "./InlineTomato";
 import AddModule from "./AddModule";
 import EditBoard from './EditBoard';
 import ListModule from "./ListModule";
-
+// todo部分的中心component todo数据的中心和最高曾 
 class Todo extends Component {
-
+    //初始化state 同时接收App.js传来的设定参数
     constructor(props){
         super(props);
         this.state={
@@ -19,7 +19,7 @@ class Todo extends Component {
         }
     }
 
-                       
+//lifecycle函数 从localStorage读取todo数据的document                       
 componentDidMount(){
     const documentData = JSON.parse(localStorage.getItem("todo"));
     if (documentData !== null){
@@ -27,6 +27,7 @@ componentDidMount(){
         todoData:documentData,
       })
     }else{
+        //如果不存在数据，加载设定好的demo
       this.setState({
         index:0,
         todoData:[
@@ -80,12 +81,15 @@ componentDidMount(){
     }
     }
 
+    //如果state的todoData的内容变化， 同步更新localStorage中储存的值
     componentDidUpdate(prevState){
         if(prevState.todoData!==this.state.todoData){
             localStorage.setItem("todo",JSON.stringify( this.state.todoData));
         }
     }
 
+    //任务增加函数 
+    //接受第一部分 addmodule中输入的内容， 将新的内容增加到todoData的数组中
     updateAddItem =(item)=>{
         const {todoData} = this.state; 
         let newId = todoData.length;
@@ -104,53 +108,60 @@ componentDidMount(){
             todoData: newTodoData,
         })
     }
-
+    //更新todoData 函数
+    //从editboard中接收修改后的新的todoData进行更新
     updateItemStatus = item => {
         this.setState({
             todoData:item,
         })
     }
-
+    //index更新函数
+    //接收listmodule中点击的条目对应的id，更新state中的index方便传递到editmodule中
     updateIndexStatus = index =>{
         this.setState({
             index: index,
         })
     }
-
+    //删除完成项目函数
     deleteDoneItem = () =>{
         const data = this.state.todoData;
         let newData  = [];
         let Data = [];
+        //使用data数组的filter函数， 保留未完成的条目
         newData = data.filter(item=>item.checked === false)
+        //重新进行id的分配，消除删除造成的id和index的不一致问题
         Data = newData.map((item,index)=>{
             item.id = index;
             return item;
         })
-        // console.log("!!!!!!!!!!",Data);
+        //删除的警告确认
         if(window.confirm("Sure to Change?"))
+        //对最高级state的数据todoData进行了更新
         this.setState({
             todoData: Data,
 
         })
     }
 
+    //删除单个条目函数
+    // 在editmodule中使用
     deleteItem = () =>{
         const data = this.state.todoData;
         const index = this.state.index;
         let newData  = [];
         let Data = [];
         newData  = data.filter(item=>item.id!==index)
+        // 重新给id
         Data = newData.map((item,index)=>{
             item.id = index;
             return item;
         })
-        // console.log("!!!!!!!!!!",Data);
         if(window.confirm("Sure to Change?"))
         this.setState({
             todoData: Data,
         })
     }
-
+    //全部删除函数
     clearAll = ()=>{
         const newData = [];
         if(window.confirm("Sure to Change?"))
@@ -158,24 +169,20 @@ componentDidMount(){
             todoData: newData,
         })
     }
-
-    // updateTomatoTime = (item)=>{
-    //     this.setState({
-    //       Times:item,
-    //     })
-    //   }
     
+    //inlinetomato开始工作函数
     inlineTomatoButton = ()=>{
         const index = this.state.index;
         let tomatoTimes =0;
         if (this.state.todoData[index]!==undefined)
             tomatoTimes = this.state.todoData[index].tomatoNumber;
+            //更新tomatoclock的工作周期
         this.props.updateTomatoTimes(tomatoTimes);
         this.setState({
             Times:tomatoTimes,
+            // 给inlineTag赋值，触发显示
             inlineTag:true,
         })
-        // this.props.updateTomatoTime(tomatoTimes);
     }
 
     render() {
@@ -183,15 +190,18 @@ componentDidMount(){
             <div className="container">
                 <div>
                     <h1>To do</h1>
+                    {/* 增添部分 */}
                     <AddModule 
                         todoData={this.state.todoData}
                         updateAddItem={this.updateAddItem}
                     />
                 </div>
                 <br/>
+                {/* 如果列表中没有数据，后面的模块不显示 */}
                 {this.state.todoData.length!==0 &&
                 <div >
                 <div className="flex-row">
+                {/* 第二部分 左边是列表 右边是编辑 */}
                     <div className="flex-large">
                         <h3>List </h3>
                             <ListModule 
@@ -202,6 +212,7 @@ componentDidMount(){
                                 encourageMode={this.props.encourageMode}
                             />
                         <span>
+                        {/* 为了符合react的刷新机制，实现页面的局部刷新 将删除按钮分出 */}
                         <button 
                             onClick={this.deleteDoneItem}>
                                 Clean Done
@@ -221,11 +232,11 @@ componentDidMount(){
                                 inlineTomato={this.props.inlineTomato}
                                 updateItemStatus={this.updateItemStatus}
                                 updateTomatoTimes={this.props.updateTomatoTimes}
-                                // updateTomatoTime={this.updateTomatoTime}
                                 deleteItem={this.deleteItem}
                                 enableTomato={this.props.enableTomato}
                                 encourageMode={this.props.encourageMode}
                             />
+                            {/* restricmode下不使用单个项目的删除 */}
                             {!this.props.restrictMode &&
                             <div>
                             <label style={{marginLeft: "1rem"}}>
@@ -237,6 +248,7 @@ componentDidMount(){
                                 style={{marginLeft: "1rem"}}>
                                     Delete
                             </button>
+                            {/* inlinemode的番茄工作模式触发 */}
                             {this.props.inlineTomato &&
                             <button 
                                 onClick={this.inlineTomatoButton}
@@ -247,7 +259,7 @@ componentDidMount(){
                             </div>}
                     </div> 
                    </div> 
-                   
+                   {/* inlinetomato的显示条件 */}
                    {(this.props.inlineTomato&&this.props.enableTomato&&this.state.inlineTag) &&
                    <div>
                     <br/>
