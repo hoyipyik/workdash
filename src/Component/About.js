@@ -65,7 +65,7 @@ class About extends Component {
                 {/* <h4>Clock</h4> */}
 
                 <hr/>
-                <p>Designed by HYY at BUPT</p>
+                <dd>Designed by HYY at BUPT</dd>
                 <br/>
             </div>
         );
