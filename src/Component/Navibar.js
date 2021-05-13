@@ -14,11 +14,11 @@ class Navibar extends Component {
                                     To do
                                 </Link>
                             </th>
-                            <th>
+                            {/* <th>
                                 <Link to="/board">
                                     Board
                                 </Link>
-                            </th>
+                            </th> */}
                             <th>
                                 <Link to="/clock">
                                     Clock

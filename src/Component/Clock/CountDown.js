@@ -59,9 +59,6 @@ const CountDown=(props) =>{
         setIsActive(false);
       }
     
-    // const tomatoTagFunction = () =>{
-    //   setTomatoTag(!tomatoTag);
-    // }
   
     const minutes = Math.floor(counter / 60);
     const seconds = counter % 60;
@@ -105,13 +102,7 @@ console.log(Times)
         </button>
       </div>
       
-      {/* <Switch 
-        checked={tomatoTag}
-        name="tomatoTag"
-        id="tomatoTag"
-        color="primary"
-        onChange={tomatoTagFunction}
-      /> */}
+      
       {props.enableTomato &&
       <div>
       {!props.inlineTomato &&
