@@ -69,10 +69,10 @@ componentDidMount(){
                 id:4,
                 checked:false,
                 title:"Eat",
-                tomatoNumber:0,
+                tomatoNumber:3,
                 body:"",
                 propoty:false,
-                encourage:false,
+                encourage:true,
             }
         ]
       })
