@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/workdash/static/css/main.6f528251.chunk.css",
-    "main.js": "/workdash/static/js/main.b8642cda.chunk.js",
-    "main.js.map": "/workdash/static/js/main.b8642cda.chunk.js.map",
+    "main.js": "/workdash/static/js/main.d4693685.chunk.js",
+    "main.js.map": "/workdash/static/js/main.d4693685.chunk.js.map",
     "runtime-main.js": "/workdash/static/js/runtime-main.ad13c0ab.js",
     "runtime-main.js.map": "/workdash/static/js/runtime-main.ad13c0ab.js.map",
     "static/js/2.4c376921.chunk.js": "/workdash/static/js/2.4c376921.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.ad13c0ab.js",
     "static/js/2.4c376921.chunk.js",
     "static/css/main.6f528251.chunk.css",
-    "static/js/main.b8642cda.chunk.js"
+    "static/js/main.d4693685.chunk.js"
   ]
 }
