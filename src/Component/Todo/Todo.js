@@ -12,6 +12,7 @@ class Todo extends Component {
         this.state={
             index: 0,
             Times:0,
+            inlineTag:false,
             enableTomato:this.props.enableTomato,
             inlineTomato:this.props.inlineTomato,
             todoData:[],
@@ -164,7 +165,7 @@ componentDidMount(){
     //     })
     //   }
     
-    tomatoButton = ()=>{
+    inlineTomatoButton = ()=>{
         const index = this.state.index;
         let tomatoTimes =0;
         if (this.state.todoData[index]!==undefined)
@@ -172,6 +173,7 @@ componentDidMount(){
         this.props.updateTomatoTimes(tomatoTimes);
         this.setState({
             Times:tomatoTimes,
+            inlineTag:true,
         })
         // this.props.updateTomatoTime(tomatoTimes);
     }
@@ -236,7 +238,7 @@ componentDidMount(){
                             </button>
                             {this.props.inlineTomato &&
                             <button 
-                                onClick={this.tomatoButton}
+                                onClick={this.inlineTomatoButton}
                                 style={{marginLeft: "1rem"}}>
                                     Start Timing
                             </button>}
@@ -245,7 +247,7 @@ componentDidMount(){
                     </div> 
                    </div> 
                    
-                   {(this.props.inlineTomato&&this.props.enableTomato) &&
+                   {(this.props.inlineTomato&&this.props.enableTomato&&this.state.inlineTag) &&
                    <div>
                     <br/>
                     <hr/>

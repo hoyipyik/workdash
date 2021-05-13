@@ -74,7 +74,7 @@ class ListModule extends Component {
             // console.log(row.checked)
             return(
                 <tr key={index}>
-                    <div>
+                    <div onClick={()=>this.sendIndex(index)}>
                     <ThemeProvider theme={this.checkboxTheme}>
                         <Checkbox 
                             checked={row.checked}
@@ -83,7 +83,7 @@ class ListModule extends Component {
                             />
                         </ThemeProvider>
                         <span
-                            onClick={()=>this.sendIndex(index)}
+                            // onClick={()=>this.sendIndex(index)}
                             style={{ textDecoration: row.checked ? "line-through" : null,
                             marginLeft:16, fontWeight: row.propoty ? "bold" : null,
                                 }}
