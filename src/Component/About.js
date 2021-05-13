@@ -7,7 +7,7 @@ class About extends Component {
             <div className="container">
                 <h1>About</h1>
                 {/* <hr/> */}
-                <p>A React App Combiming Todo and Tomato Clock Together</p>
+                <p>A React App Combining Todo and Tomato Clock Together</p>
                 <hr/>
                 <h4>Setting</h4>
                 <label><li>Restrict Mode</li></label>
@@ -28,7 +28,7 @@ class About extends Component {
                     <li>Disable Inline Tomato Clock</li>
                     <tr>Restrict Mode will disable Inline Tomato Clock.</tr>
                     <tr>Shown just down the task list, Inline Tomato Clock makes it easy to check 
-                    your task with clock counting</tr>
+                    your task with clock counting. </tr>
                     <tr>However, if you want to enjoy your concentration without any interuption.
                     Leaving other tasks alone is a wise choice.</tr>
                     <tr>So, why not jump to the clock page and enjoy your own time :)</tr>
@@ -50,7 +50,7 @@ class About extends Component {
                     <tr>To be host, I am not rich enough to store your data on the cloud 
                     without selling them to your managers.</tr>
                     <tr>However, my coding level surely sucks, which will guarantee your privacy safety
-                     because I have no idea of storing data online.</tr>
+                     because I have no ability to store data online.</tr>
                     <tr>So, you should feel lucky and keep the switch on. Feel free 
                     to tap the switch if you finish your work in advance.</tr>
                     <tr>The checkbox will turn green as encouragement.</tr>

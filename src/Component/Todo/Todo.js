@@ -199,6 +199,7 @@ componentDidMount(){
                                 updateItemStatus = {this.updateItemStatus}
                                 index={this.state.index}
                                 updateIndexStatus={this.updateIndexStatus}
+                                encourageMode={this.props.encourageMode}
                             />
                         <span>
                         <button 

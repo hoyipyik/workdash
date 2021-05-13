@@ -93,7 +93,7 @@ class ListModule extends Component {
                 <tr key={index}>
                     <div onClick={()=>this.sendIndex(index)}>
                     <ThemeProvider theme={this.checkboxTheme}>
-                    {row.encourage?
+                    {(row.encourage&&this.props.encourageMode)?
                         <EncourageCheckbox 
                             checked={row.checked}
                             color={row.propoty?"secondary":"primary"}
