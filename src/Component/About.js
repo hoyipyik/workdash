@@ -13,7 +13,11 @@ class About extends Component {
                 <label><li>Restrict Mode</li></label>
                 <p>
                     <tr>As seen from the name, 
-                    Restrict Mode will disable single delete button which will 
+                    Restrict Mode will disable some functions to help you concentrate better.</tr>
+                </p>
+                <p>
+                    <li>Disable Single Item Delete Button</li>
+                    <tr>Restrict Mode will disable single delete button which will 
                     prevent you from deleting the item you added on the list.</tr>
                     <tr>Hard tasks left on the list of no doubt make you not that happy.</tr>
                     <tr>So, urge yourself to complete them instead of cheating yourself...</tr>
@@ -21,13 +25,44 @@ class About extends Component {
                 </p>
 
                 <p>
-                    <tr>Restrict Mode will also disable Inline Toamto 
-                    Clock and the Pause Option of the Tomato (Count Down) Clock</tr>
-                    
+                    <li>Disable Inline Tomato Clock</li>
+                    <tr>Restrict Mode will disable Inline Tomato Clock.</tr>
+                    <tr>Shown just down the task list, Inline Tomato Clock makes it easy to check 
+                    your task with clock counting</tr>
+                    <tr>However, if you want to enjoy your concentration without any interuption.
+                    Leaving other tasks alone is a wise choice.</tr>
+                    <tr>So, why not jump to the clock page and enjoy your own time :)</tr>
+
                 </p>
-                
+                <p>
+                    <li>Disable Pause Option of the Tomato Clock</li>
+                    <tr>Restrict Mode will disable the Pause Option of the Tomato (Count Down) Clock.</tr>
+                    <tr>In fact, according to the policy of Tomato Work Method, pause is even not allowed.</tr>
+                    <tr>So, if you sruely wanna pause, just reset and start again.</tr>
+                </p>
+
+
+                <label><li>Encourage Mode</li></label>
+                <p>
+                    <tr>If there were no bosses patroling around, </tr>
+                    <tr>everyone would be happy showing off the fact 
+                    of finishing work ahead of scheduled time.</tr>
+                    <tr>To be host, I am not rich enough to store your data on the cloud 
+                    without selling them to your managers.</tr>
+                    <tr>However, my coding level surely sucks, which will guarantee your privacy safety
+                     because I have no idea of storing data online.</tr>
+                    <tr>So, you should feel lucky and keep the switch on. Feel free 
+                    to tap the switch if you finish your work in advance.</tr>
+                    <tr>The checkbox will turn green as encouragement.</tr>
+
+                </p>
                 <h4>To Do</h4>
-                <h4>Clock</h4>
+                <p>
+                    <tr>Add your item to start.</tr>
+                    <tr>Click at the task to see its propotions and edit it.</tr>
+                    <tr>You can set tomato clock time to each task use interactive tomato clock.</tr>
+                </p>
+                {/* <h4>Clock</h4> */}
 
                 <hr/>
                 <p>Designed by HYY at BUPT</p>

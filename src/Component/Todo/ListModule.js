@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
 import { Checkbox } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { blue } from '@material-ui/core/colors';
+import { blue, green } from '@material-ui/core/colors';
+import { withStyles } from '@material-ui/core/styles';
+
 
 // import Checkbox from "./CheckBox";
 
+const EncourageCheckbox = withStyles({
+    root: {
+    //   color: green[400],
+      '&$checked': {
+        color: green[300],
+      },
+    },
+    checked: {},
+  })((props) => <Checkbox color="default" {...props} />);
 
 
 class ListModule extends Component {
@@ -18,6 +29,9 @@ class ListModule extends Component {
         }
     }
 
+    
+    
+
     checkboxTheme = createMuiTheme({
         palette: {
           primary:{
@@ -26,6 +40,9 @@ class ListModule extends Component {
           secondary: {
             main: blue[700],
           },
+          default:{
+            main: green[300],
+          }
         },
       });
 
@@ -76,11 +93,18 @@ class ListModule extends Component {
                 <tr key={index}>
                     <div onClick={()=>this.sendIndex(index)}>
                     <ThemeProvider theme={this.checkboxTheme}>
-                        <Checkbox 
+                    {row.encourage?
+                        <EncourageCheckbox 
                             checked={row.checked}
                             color={row.propoty?"secondary":"primary"}
                             onClick={()=>this.handleCheckboxChange(index)} 
                             />
+                        :<Checkbox 
+                            checked={row.checked}
+                            color={row.propoty?"secondary":"primary"}
+                            onClick={()=>this.handleCheckboxChange(index)} 
+                            />
+                    }
                         </ThemeProvider>
                         <span
                             // onClick={()=>this.sendIndex(index)}
