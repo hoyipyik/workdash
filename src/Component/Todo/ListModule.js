@@ -91,7 +91,6 @@ class ListModule extends Component {
                                {row.title}
                         </span>
                         <span>
-
                         </span>
                     </div>
                 </tr>
