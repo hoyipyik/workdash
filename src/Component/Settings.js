@@ -27,6 +27,9 @@ class Settings extends Component {
         let enableTomato = this.props.enableTomato;
         enableTomato = !enableTomato;
         this.props.updateEnableTomato(enableTomato);
+        if(!enableTomato){
+            this.props.updateInlineTomato(false);
+        }
     }
 
     inlineTomatoMethod = ()=>{
@@ -74,7 +77,8 @@ class Settings extends Component {
                     <label>Inline Tomato Clock</label>
                     <ThemeProvider theme={this.switchTheme}>
                         <Switch
-                            disabled={this.props.restrictMode}
+                            // disabled={this.props.restrictMode}
+                            disabled={this.props.restrictMode||!(this.props.enableTomato)}
                             checked={this.props.inlineTomato}
                             name="inlineTomato"
                             id="inlineTomato"
