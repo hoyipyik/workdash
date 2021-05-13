@@ -79,7 +79,13 @@ console.log(Times)
         {minutes}:{seconds}
       </div> 
       <div className="row">
-      {!props.restrictMode ?<span>
+      {(props.restrictMode && props.enableTomato) ?
+        <button
+            className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`}
+            onClick={toggle}>
+                {isActive ? 'Reset' : 'Start'}
+        </button>:
+        <span>
         <button 
             className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} 
             onClick={toggle}>
@@ -90,12 +96,7 @@ console.log(Times)
             onClick={reset}>
                 Reset
         </button>
-        </span>:
-        <button
-            className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`}
-            onClick={toggle}>
-                {isActive ? 'Reset' : 'Start'}
-        </button>
+        </span>
         }
         <button
           className="button"

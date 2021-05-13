@@ -143,6 +143,7 @@ class EditBoard extends Component {
                     <label>Done Advance</label>
                     <ThemeProvider theme={this.checkboxTheme}>
                     <Switch
+                        disabled={!data.checked}
                         checked={data.encourage}
                         name="encourage"
                         id="encourage"
