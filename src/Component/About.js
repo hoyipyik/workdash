@@ -13,7 +13,7 @@ class About extends Component {
                 <label><li>Restrict Mode</li></label>
                 <p>
                     <tr>As seen from the name, 
-                    Restrict Mode will disable some functions to help you concentrate better.</tr>
+                    Restrict Mode will disable some features to help you concentrate better.</tr>
                 </p>
                 <p>
                     <li>Disable Single Item Delete Button</li>
