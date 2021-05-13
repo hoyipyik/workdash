@@ -2,29 +2,35 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 // import {Switch} from "@material-ui/core";
 import "./Clock.css";
+
+// 因为时间的操作的灵活性较高，所以使用了react hook的写法。 虽然是函数的形式，但是本质上也是个对象
+
 const CountDown=(props) =>{
+    //初始化番茄钟 休息和工作的秒数的参数
     let time = 1500;
     let freeTime = 300;
+    //state中添加 计时器 状态 工作休息判断 工作轮数 上层工作状态的轮数
     const [counter, setCounter] = useState(time);
     const [isActive, setIsActive] = useState(false);
     const [isWork, setisWork] = useState(true);
     const [Times, setTimes] = useState(props.Times);
-    // const [tomatoTag, setTomatoTag] = useState(true)
     const [prevTimes,setPrevTimes] = useState(props.Times);
-
+    
+    //lifecycle函数 将上层本来的Times缓存到prevTimes中
     useEffect(()=>{
       setPrevTimes(props.Times);
     })
-
+    //lifecycle函数 刷新页面时， 给Times重新赋上层原本的Times的数值
     useEffect(() => {
       if(prevTimes !== props.Times){
         setTimes(props.Times);
       }
     })
-
+    //lifecycle函数 
     useEffect(() => {
       let interval = null;
       if (isActive) {
+        //进行了倒计时的-1操作
         interval = setInterval(() => {
           setCounter(counter => {
             if(counter > 0)
@@ -39,29 +45,35 @@ const CountDown=(props) =>{
       return () => clearInterval(interval);
     }, [isActive, counter]);
     
+    //下一个状态转换函数， 进行工作和休息的状态的改变
     const nextMode = () =>{
       setIsActive(false);
       setisWork(!isWork);
+      //根据当前的状态来决定下个倒计时的总的时间数
       setCounter(isWork?freeTime:time);
+      //两次状态转换相当完成一轮工作， 对Times剩余的轮数进行了赋值
       setTimes(Times => Times - 0.5);
     }
-
+    //暂停操作函数
     const toggle = () => {
         setIsActive(!isActive);
+        //在restricmode的时候， 会禁用暂停按钮
         if(props.restrictMode){
           setCounter(isWork?time:freeTime);
           // setIsActive(false);
         }
       }
-    
+    //重置操作函数
     const reset = () => {
         setCounter(isWork?time:freeTime);
         setIsActive(false);
       }
     
-  
+    //倒计时的分秒显示的转换
     const minutes = Math.floor(counter / 60);
     const seconds = counter % 60;
+
+    //lifecycle函数 计时结束进行了提醒
     useEffect(()=>{
       if(minutes===0 && seconds===0 && isWork===true)
         window.alert("Well Done, Take a Break :)")
@@ -76,6 +88,7 @@ console.log(Times)
         {minutes}:{seconds}
       </div> 
       <div className="row">
+      {/* //根据设定的情况显示不同的按钮功能 */}
       {(props.restrictMode && props.enableTomato) ?
         <button
             className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`}
@@ -102,7 +115,7 @@ console.log(Times)
         </button>
       </div>
       
-      
+      {/* 参考设定的参数来显示剩余工作轮数的提示 */}
       {props.enableTomato &&
       <div>
       {!props.inlineTomato &&

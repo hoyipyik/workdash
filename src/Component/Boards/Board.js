@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Board extends Component {
-
+//board的component
     render() {
         return (
            <div className="container">

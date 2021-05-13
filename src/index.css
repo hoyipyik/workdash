@@ -185,7 +185,7 @@ a:hover, a:active, a:focus {
   text-decoration: underline;
 }
 
-
+/* 基本加载字体 行距 字号 颜色 背景的样式设定 */
 pre {
   border: 0;
   border-radius: 4px;
@@ -255,7 +255,7 @@ dd {
     padding: 60px 0;
   }
 }
-
+/* 动态的grid适应和屏幕适应样式 */
 .flex-large {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -285,7 +285,7 @@ dd {
   }
   
 }
-
+/* 详细的按钮样式 动态反馈，颜色，背景等 */
 .button, a.button, button, [type=submit], [type=reset], [type=button] {
   -webkit-appearance: none;
   display: inline-block;
@@ -357,11 +357,6 @@ a.muted-button:active {
   background: transparent;
 }
 
-.round-button,
-a.round-button {
-  border-radius: 40px;
-}
-
 .square-button,
 a.square-button {
   border-radius: 0;
@@ -395,7 +390,7 @@ a.full-button {
   border: 1px solid #0366ee;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 6px #8cbcfe;
 }
-
+/* 文字框的设定 */
 textarea {
   overflow: auto;
   height: auto;
@@ -413,7 +408,7 @@ fieldset {
 [type='range'] {
   width: 100%;
 }
-
+/* 标签样式 */
 label {
   font-weight: 600;
   max-width: 100%;
@@ -428,7 +423,7 @@ label {
     margin-bottom: 1rem;
   }
 }
-
+/* 文字框的样式 */
 input.has-error, input.has-error:hover, input.has-error:focus, input.has-error:active,
 textarea.has-error,
 textarea.has-error:hover,
@@ -453,14 +448,14 @@ textarea.is-success:active {
 :-ms-input-placeholder {
   color: #9a9a9a;
 }
-
+/* 表格样式设计 */
 table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
   max-width: 100%;
 }
-
+/* 表头 */
 thead th {
   border-bottom: 2px solid #dedede;
 }
@@ -468,7 +463,7 @@ thead th {
 tfoot th {
   border-top: 2px solid #dedede;
 }
-
+/* 纵向 */
 td {
   border-bottom: 1px solid #dedede;
 }
@@ -482,7 +477,7 @@ caption {
   caption-side: bottom;
   color: #ababab;
 }
-
+/* 横向 */
 .striped-table tbody tr:nth-child(odd) {
   background-color: #f8f8f8;
 }

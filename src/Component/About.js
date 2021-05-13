@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+// 作者的信息和软件的使用说明的文字
 class About extends Component {
 
     render() {
