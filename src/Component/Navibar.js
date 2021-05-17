@@ -20,6 +20,11 @@ class Navibar extends Component {
                                 </Link>
                             </th> */}
                             <th>
+                                <Link to="/schedule">
+                                    Schedules
+                                </Link>
+                            </th>
+                            <th>
                                 <Link to="/clock">
                                     Clock
                                 </Link>

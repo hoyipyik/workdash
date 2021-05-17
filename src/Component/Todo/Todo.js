@@ -15,101 +15,19 @@ class Todo extends Component {
             inlineTag:false,
             enableTomato:this.props.enableTomato,
             inlineTomato:this.props.inlineTomato,
-            todoData:[],
+            todoData:this.props.todoData,
         }
-    }
-
-                       
-componentDidMount(){
-    const documentData = JSON.parse(localStorage.getItem("todo"));
-    if (documentData !== null){
-      this.setState({
-        todoData:documentData,
-      })
-    }else{
-      this.setState({
-        index:0,
-        todoData:[
-            {
-                id:0,
-                checked:true,
-                title:"Try to work 25h a day",
-                tomatoNumber:0,
-                body:"You know Professor Sun will love it",
-                propoty:false,
-                encourage:false,
-            },
-            {
-                id:1,
-                checked:true,
-                title:"Homework",
-                tomatoNumber:5,
-                body:"DDL is coming XD",
-                propoty:true,
-                encourage:true,
-            },
-            {
-                id:2,
-                checked:false,
-                title:"Design a chip",
-                tomatoNumber:3,
-                body:"We Chinese can carve a chip by hand, Cry Dutchess :<",
-                propoty:true, 
-                encourage:false,
-            },
-            {
-                id:3,
-                checked:false,
-                title:"Sleep",
-                tomatoNumber:0,
-                body:'',
-                propoty:false,
-                encourage:false,
-            },
-            {
-                id:4,
-                checked:false,
-                title:"Eat",
-                tomatoNumber:3,
-                body:"",
-                propoty:false,
-                encourage:true,
-            }
-        ]
-      })
-    }
     }
 
     componentDidUpdate(prevState){
-        if(prevState.todoData!==this.state.todoData){
-            localStorage.setItem("todo",JSON.stringify( this.state.todoData));
+        if(prevState.todoData !== this.props.todoData){
+            this.setState({
+                todoData: this.props.todoData,
+            })
         }
     }
 
-    updateAddItem =(item)=>{
-        const {todoData} = this.state; 
-        let newId = todoData.length;
-        const newItem = {
-            id:newId,
-            checked:false,
-            title:item,
-            tomatoNumber:0,
-            body:"",
-            propoty:false,
-            encourage:false,
-        }
-        console.log(newItem)
-        const newTodoData =  [...todoData,newItem];
-        this.setState({
-            todoData: newTodoData,
-        })
-    }
-
-    updateItemStatus = item => {
-        this.setState({
-            todoData:item,
-        })
-    }
+    
 
     updateIndexStatus = index =>{
         this.setState({
@@ -117,53 +35,6 @@ componentDidMount(){
         })
     }
 
-    deleteDoneItem = () =>{
-        const data = this.state.todoData;
-        let newData  = [];
-        let Data = [];
-        newData = data.filter(item=>item.checked === false)
-        Data = newData.map((item,index)=>{
-            item.id = index;
-            return item;
-        })
-        // console.log("!!!!!!!!!!",Data);
-        if(window.confirm("Sure to Change?"))
-        this.setState({
-            todoData: Data,
-
-        })
-    }
-
-    deleteItem = () =>{
-        const data = this.state.todoData;
-        const index = this.state.index;
-        let newData  = [];
-        let Data = [];
-        newData  = data.filter(item=>item.id!==index)
-        Data = newData.map((item,index)=>{
-            item.id = index;
-            return item;
-        })
-        // console.log("!!!!!!!!!!",Data);
-        if(window.confirm("Sure to Change?"))
-        this.setState({
-            todoData: Data,
-        })
-    }
-
-    clearAll = ()=>{
-        const newData = [];
-        if(window.confirm("Sure to Change?"))
-        this.setState({
-            todoData: newData,
-        })
-    }
-
-    // updateTomatoTime = (item)=>{
-    //     this.setState({
-    //       Times:item,
-    //     })
-    //   }
     
     inlineTomatoButton = ()=>{
         const index = this.state.index;
@@ -185,7 +56,7 @@ componentDidMount(){
                     <h1>To do</h1>
                     <AddModule 
                         todoData={this.state.todoData}
-                        updateAddItem={this.updateAddItem}
+                        updateAddItem={this.props.updateAddItem}
                     />
                 </div>
                 <br/>
@@ -196,14 +67,14 @@ componentDidMount(){
                         <h3>List </h3>
                             <ListModule 
                                 todoData ={this.state.todoData}
-                                updateItemStatus = {this.updateItemStatus}
+                                updateItemStatus = {this.props.updateItemStatus}
                                 index={this.state.index}
                                 updateIndexStatus={this.updateIndexStatus}
                                 encourageMode={this.props.encourageMode}
                             />
                         <span>
                         <button 
-                            onClick={this.deleteDoneItem}>
+                            onClick={this.props.deleteDoneItem}>
                                 Clean Done
                         </button>
                         <button 
@@ -219,10 +90,10 @@ componentDidMount(){
                                 data={this.state.todoData}
                                 index={this.state.index}
                                 inlineTomato={this.props.inlineTomato}
-                                updateItemStatus={this.updateItemStatus}
+                                updateItemStatus={this.props.updateItemStatus}
                                 updateTomatoTimes={this.props.updateTomatoTimes}
                                 // updateTomatoTime={this.updateTomatoTime}
-                                deleteItem={this.deleteItem}
+                                deleteItem={this.props.deleteItem}
                                 enableTomato={this.props.enableTomato}
                                 encourageMode={this.props.encourageMode}
                             />
@@ -233,7 +104,7 @@ componentDidMount(){
                             </label>
                             <span>
                             <button 
-                                onClick={this.deleteItem}
+                                onClick={this.props.deleteItem}
                                 style={{marginLeft: "1rem"}}>
                                     Delete
                             </button>
