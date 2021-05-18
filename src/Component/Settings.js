@@ -47,6 +47,12 @@ class Settings extends Component {
         encourageMode = !encourageMode;
         this.props.updateEncourageMode(encourageMode);
     }
+
+    enableOrderMethod=()=>{
+        let enableOrder = this.props.enableOrder;
+        enableOrder = !enableOrder;
+        this.props.updateEnableOrder(enableOrder);
+    }
 //lifecycle函数 显示
     render() {
         return (
@@ -95,6 +101,18 @@ class Settings extends Component {
                     </ThemeProvider>
                 </span>
                 <span>
+                    <label>Enable Order</label>
+                    <ThemeProvider theme={this.switchTheme}>
+                        <Switch
+                            checked={this.props.enableOrder}
+                            name="inlineTomato"
+                            id="inlineTomato"
+                            color="primary"
+                            onChange={this.enableOrderMethod}
+                        />
+                    </ThemeProvider>
+                </span>
+                <span>
                     <label>Encourage Mode</label>
                     <ThemeProvider theme={this.switchTheme}>
                         <Switch
@@ -106,6 +124,8 @@ class Settings extends Component {
                         />
                     </ThemeProvider>
                 </span>
+                <br/>
+                <br/>
             </div>
         );
     }

@@ -13,6 +13,9 @@ class Todo extends Component {
             index: 0,
             Times:0,
             inlineTag:false,
+            hideDone: false,
+            orderByName: false,
+            orderByProperty: false,
             enableTomato:this.props.enableTomato,
             inlineTomato:this.props.inlineTomato,
             todoData:[],
@@ -22,6 +25,40 @@ class Todo extends Component {
 //lifecycle函数 从localStorage读取todo数据的document                       
 componentDidMount(){
     const documentData = JSON.parse(localStorage.getItem("todo"));
+    // const documentHideDone = JSON.parse(localStorage.getItem("hideDone"));
+    // const documentOrderByName = JSON.parse(localStorage.getItem("orderByName"));
+    // const documentOrderByProperty = JSON.parse(localStorage.getItem("orderByProperty"));
+    
+    // if(documentOrderByName!==null){
+    //     this.setState({ 
+    //         orderByName:documentOrderByName,
+    //     })
+    // }else{
+    //     this.setState({
+    //         orderByName:false,
+    //     })
+    // }
+
+    // if(documentOrderByProperty!==null){
+    //     this.setState({ 
+    //         orderByProperty:documentOrderByProperty,
+    //     })
+    // }else{
+    //     this.setState({
+    //         orderByProperty:false,
+    //     })
+    // }
+
+    // if(documentHideDone!==null){
+    //     this.setState({ 
+    //         hideDone:documentHideDone,
+    //     })
+    // }else{
+    //     this.setState({
+    //         hideDone:false,
+    //     })
+    // }
+
     if (documentData !== null){
       this.setState({
         todoData:documentData,
@@ -73,7 +110,7 @@ componentDidMount(){
                 title:"Eat",
                 tomatoNumber:3,
                 body:"",
-                propoty:false,
+                propoty:true,
                 encourage:true,
             }
         ]
@@ -86,6 +123,15 @@ componentDidMount(){
         if(prevState.todoData!==this.state.todoData){
             localStorage.setItem("todo",JSON.stringify( this.state.todoData));
         }
+        // if(prevState.hideDone!==this.state.hideDone){
+        //     localStorage.setItem("hideDone",JSON.stringify(this.state.hideDone))
+        // }
+        // if(prevState.orderByName!==this.state.orderByName){
+        //     localStorage.setItem("orderByName",JSON.stringify(this.state.orderByName))
+        // }
+        // if(prevState.orderByProperty!==this.state.orderByName){
+        //     localStorage.setItem("orderByProperty",JSON.stringify(this.state.orderByProperty))
+        // }
     }
 
     //任务增加函数 
@@ -185,6 +231,25 @@ componentDidMount(){
         })
     }
 
+
+    updateHideDone = (event) =>{
+        this.setState({
+            hideDone: event,
+        }) 
+    }
+
+    updateOrderByName =(event) =>{
+        this.setState({
+            orderByName: event,
+        })
+    }
+
+    updateOrderByProperty = (event)=>{
+        this.setState({
+            orderByProperty:event,
+        })
+    }
+
     render() {
         return (
             <div className="container">
@@ -203,15 +268,23 @@ componentDidMount(){
                 <div className="flex-row">
                 {/* 第二部分 左边是列表 右边是编辑 */}
                     <div className="flex-large">
-                        <h3>List </h3>
+                        {/* <h3>List </h3> */}
                             <ListModule 
                                 todoData ={this.state.todoData}
                                 updateItemStatus = {this.updateItemStatus}
                                 index={this.state.index}
                                 updateIndexStatus={this.updateIndexStatus}
                                 encourageMode={this.props.encourageMode}
+                                hideDone={this.state.hideDone}
+                                orderByName={this.state.orderByName}
+                                orderByProperty={this.state.orderByProperty}
+                                updateOrderByName={this.updateOrderByName}
+                                updateOrderByProperty={this.updateOrderByProperty}
+                                updateHideDone = {this.updateHideDone}
+                                enableOrder={this.props.enableOrder}
                             />
                         <span>
+                        <br/>
                         {/* 为了符合react的刷新机制，实现页面的局部刷新 将删除按钮分出 */}
                         <button 
                             onClick={this.deleteDoneItem}>

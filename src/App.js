@@ -21,6 +21,7 @@ class App extends Component {
       enableTomato:true,
       inlineTomato:true,
       encourageMode:true,
+      enableOrder:true,
     }
   }
 //lifecycle函数 从localStorage读取先前存储的设定参数
@@ -123,6 +124,12 @@ componentDidUpdate(prevState){
       encourageMode:item,
     })
   }
+
+  updateEnableOrder = item=>{
+    this.setState({
+      enableOrder:item
+    })
+  }
 //render函数， 进行显示， 此处主要是react-route-dom的路由的设定和参数的传递
   render() {
     return (
@@ -139,6 +146,7 @@ componentDidUpdate(prevState){
               enableTomato={this.state.enableTomato}
               inlineTomato={this.state.inlineTomato}
               encourageMode={this.state.encourageMode}
+              enableOrder={this.state.enableOrder}
             />
           </Route>
           <Route path="/board">
@@ -162,6 +170,8 @@ componentDidUpdate(prevState){
               updateInlineTomato={this.updateInlineTomato}
               encourageMode={this.state.encourageMode}
               updateEncourageMode={this.updateEncourageMode}
+              enableOrder={this.state.enableOrder}
+              updateEnableOrder={this.updateEnableOrder}
               />
           </Route>
           <Route path="/about">

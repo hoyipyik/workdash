@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Checkbox } from '@material-ui/core';
+import { Checkbox ,Switch} from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { blue, green } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
@@ -23,7 +23,11 @@ class ListModule extends Component {
         super(props);
         this.state={
             data:this.props.todoData,
+            disableHideDone: false,
             index:-1,
+            hideDone: this.props.hideDone,
+            orderByName: this.props.orderByName,
+            orderByProperty: this.props.orderByProperty,
         }
     }
 //checkbox的样式颜色的设定
@@ -45,6 +49,11 @@ class ListModule extends Component {
         this.setState({
             index:this.props.index,
         })
+        const data = this.state.data;
+        let disableHideDone = data.every(item=>item.checked===true);
+        this.setState({
+            disableHideDone: disableHideDone,
+        })
     }
     //lifecycle函数 对data进行更新， 同时如果有数据变动， 将数据传回到上一层中
     componentDidUpdate(prevProps, prevState){
@@ -52,10 +61,94 @@ class ListModule extends Component {
             this.setState({
                 data: this.props.todoData,
             })
+            
         }
         if(prevState.data!==this.state.data){
-            this.props.updateItemStatus(this.state.data);
+            const data = this.state.data;
+            let disableHideDone = data.every(item=>item.checked===true);
+            this.setState({
+                disableHideDone: disableHideDone,
+            })
         }
+        if(prevProps.hideDone!==this.props.hideDone){
+            this.setState({
+                hideDone: this.props.hideDone,
+            })
+        }
+        if(prevProps.orderByProperty!==this.props.orderByProperty){
+            this.setState({
+                orderByProperty: this.props.orderByProperty,
+            })
+        }
+        if(prevProps.orderByName!==this.props.orderByName){
+            this.setState({
+                orderByName: this.props.orderByName,
+            })
+        }
+        if(prevState.hideDone!==this.state.hideDone ||
+            prevState.orderByName!==this.state.orderByName ||
+            prevState.orderByProperty!==this.state.orderByProperty)
+        {
+            let data = [...this.state.data];
+            const fullData = [...this.props.todoData];
+            console.log("switch update")
+            if((prevState.hideDone===true&&this.state.hideDone===false)||
+                (prevState.orderByName===true&&this.state.orderByName===false)||
+                (prevState.orderByProperty===true&&this.state.orderByProperty===false)){
+                    console.log("Emmmm, Don't be sad, I am working")
+                    this.setState({
+                        // data: fullData,
+                        joker:fullData,
+                    })
+                    data = fullData;
+                }
+            
+            if(this.props.orderByName){
+                let title = data.map(item => item.title);
+                title = title.sort();
+                let newData = [];
+                const prevData = [...data];
+                console.log(title,"Array XD");
+                for (let i=0;  i < title.length;i++){
+                    console.log("I am sure I am looping")
+                    for(let j=0; j< prevData.length; j++){
+                        console.log(prevData[j],"hey")
+                        if(prevData[j].title==title[i]){
+                            newData[i] = prevData[j];
+                        }
+                    }
+                }
+                // let news = prevData.map((item, index)=>{
+                //     for (let i=0; i++; i<title.length){
+                //         if(item.title === title[i]){
+                //             newData = [...newData, item];
+                //             console.log(newData);
+                //         }
+                //     }
+                //     return item;
+                // })
+                data = [...newData];
+                console.log(newData,"New data")
+            }
+            if(this.props.orderByProperty){
+                const dataPropoty = data.filter(item => (item.propoty===true && item.checked===false))
+                const dataCommon = data.filter(item =>(item.propoty===false && item.checked===false))
+                const dataDonePropoty = data.filter(item => (item.checked===true&&item.propoty===true))
+                const dataDoneCommon = data.filter(item => (item.checked===true&&item.propoty===false))
+                data = [...dataPropoty, ...dataCommon, ...dataDonePropoty, ...dataDoneCommon];
+            }
+
+            if(this.props.hideDone){
+                data = data.filter(item =>item.checked ===false)
+            }
+
+            this.setState({
+                data: data,
+            })
+        }
+        // if(prevState.data!==this.state.data){
+        //     this.props.updateItemStatus(this.state.data);
+        // }
         if(prevState.index!==this.state.index){
             this.props.updateIndexStatus(this.state.index)
         }
@@ -75,14 +168,33 @@ class ListModule extends Component {
         })
     }
 
+    hideDoneMethod = () =>{
+        let hideDone = this.props.hideDone;
+        hideDone = !hideDone;
+        this.props.updateHideDone(hideDone);
+    }
+
+    orderByNameMethod = ()=>{
+        let orderByName = this.props.orderByName;
+        orderByName = !orderByName;
+        this.props.updateOrderByName(orderByName);
+    }
+
+    orderByPropertyMethod = ()=>{
+        let orderByProperty = this.props.orderByProperty;
+        orderByProperty = !orderByProperty;
+        this.props.updateOrderByProperty(orderByProperty);
+    }
+
     render() {
-        const data = this.props.todoData;
+        const data = this.state.data;
+        let disableHideDone = this.state.disableHideDone;
         //对data数组进行了map遍历
         const rows = data.map((row, index)=>{
             return(
                 //使用了key来重用列表
                 <tr key={index}>
-                    <div onClick={()=>this.sendIndex(index)}>
+                    <div onClick={()=>this.sendIndex(row.id)}>
                     <ThemeProvider theme={this.checkboxTheme}>
                     {(row.encourage&&this.props.encourageMode)?
                         <EncourageCheckbox 
@@ -113,9 +225,46 @@ class ListModule extends Component {
         })
         return(
             <div className="container">
+            <h3>List </h3>
             <table>
-                <tbody>{rows}</tbody>
+            {rows.length===0?<tbody style={{fontWeight:"bold"}}>. . . . .  .</tbody>:
+                <tbody>{rows}</tbody>}
             </table>
+            {this.props.enableOrder &&<div>
+            <h4>Order Type</h4>
+                <label>Hide Done</label>
+                <ThemeProvider >
+                    <Switch
+                        disabled={disableHideDone}
+                        // disabled={true}
+                        checked={this.props.hideDone}
+                        name="hideDone"
+                        id="hideDone"
+                        color="secondary"
+                        onChange={this.hideDoneMethod}
+                        />
+                    </ThemeProvider>
+                <label>Order By Name</label>
+                <ThemeProvider >
+                    <Switch
+                        checked={this.props.orderByName}
+                        name="orderByName"
+                        id="orderByName"
+                        color="primary"
+                        onChange={this.orderByNameMethod}
+                        />
+                    </ThemeProvider>
+                <label>Order By Property</label>
+                <ThemeProvider >
+                    <Switch
+                        checked={this.props.orderByProperty}
+                        name="orderByProperty"
+                        id="orderByProperty"
+                        color="primary"
+                        onChange={this.orderByPropertyMethod}
+                        />
+                    </ThemeProvider>
+                </div>}
             </div>
         )
         
