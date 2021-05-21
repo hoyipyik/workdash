@@ -61,6 +61,14 @@ class ListModule extends Component {
             this.setState({
                 data: this.props.todoData,
             })
+            this.props.updateHideDone(false);
+            this.props.updateOrderByName(false);
+            this.props.updateOrderByProperty(false);
+            this.setState({
+                hideDone: false,
+                orderByName: false,
+                orderByProperty: false,
+            })
             
         }
         if(prevState.data!==this.state.data){
@@ -98,7 +106,7 @@ class ListModule extends Component {
                     console.log("Emmmm, Don't be sad, I am working")
                     this.setState({
                         // data: fullData,
-                        joker:fullData,
+                        joker:fullData,//毫無意義但是我捨不得刪
                     })
                     data = fullData;
                 }
@@ -118,15 +126,6 @@ class ListModule extends Component {
                         }
                     }
                 }
-                // let news = prevData.map((item, index)=>{
-                //     for (let i=0; i++; i<title.length){
-                //         if(item.title === title[i]){
-                //             newData = [...newData, item];
-                //             console.log(newData);
-                //         }
-                //     }
-                //     return item;
-                // })
                 data = [...newData];
                 console.log(newData,"New data")
             }

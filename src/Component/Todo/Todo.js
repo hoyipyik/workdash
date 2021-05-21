@@ -91,7 +91,7 @@ componentDidMount(){
                 checked:false,
                 title:"Design a chip",
                 tomatoNumber:3,
-                body:"We Chinese can carve a chip by hand, Cry Dutchess :<",
+                body:"We BUPTers can carve a chip by hand, Cry Dutchess :<",
                 propoty:true, 
                 encourage:false,
             },

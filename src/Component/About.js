@@ -47,7 +47,7 @@ class About extends Component {
                     <tr>If there were no bosses patroling around, </tr>
                     <tr>everyone would be happy showing off the fact 
                     of finishing work ahead of scheduled time.</tr>
-                    <tr>To be host, I am not rich enough to store your data on the cloud 
+                    <tr>To be honest, I am not rich enough to store your data on the cloud 
                     without selling them to your managers.</tr>
                     <tr>However, my coding level surely sucks, which will guarantee your privacy safety
                      because I have no ability to store data online.</tr>
