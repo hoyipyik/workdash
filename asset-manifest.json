@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/workdash/static/css/main.1fe41aac.chunk.css",
-    "main.js": "/workdash/static/js/main.87aed338.chunk.js",
-    "main.js.map": "/workdash/static/js/main.87aed338.chunk.js.map",
+    "main.css": "/workdash/static/css/main.5b5f76bb.chunk.css",
+    "main.js": "/workdash/static/js/main.a28321c0.chunk.js",
+    "main.js.map": "/workdash/static/js/main.a28321c0.chunk.js.map",
     "runtime-main.js": "/workdash/static/js/runtime-main.da8d3b3b.js",
     "runtime-main.js.map": "/workdash/static/js/runtime-main.da8d3b3b.js.map",
-    "static/js/2.b0ffb777.chunk.js": "/workdash/static/js/2.b0ffb777.chunk.js",
-    "static/js/2.b0ffb777.chunk.js.map": "/workdash/static/js/2.b0ffb777.chunk.js.map",
+    "static/js/2.b7df589d.chunk.js": "/workdash/static/js/2.b7df589d.chunk.js",
+    "static/js/2.b7df589d.chunk.js.map": "/workdash/static/js/2.b7df589d.chunk.js.map",
     "static/js/3.67dece43.chunk.js": "/workdash/static/js/3.67dece43.chunk.js",
     "static/js/3.67dece43.chunk.js.map": "/workdash/static/js/3.67dece43.chunk.js.map",
     "index.html": "/workdash/index.html",
     "service-worker.js": "/workdash/service-worker.js",
     "service-worker.js.map": "/workdash/service-worker.js.map",
-    "static/css/main.1fe41aac.chunk.css.map": "/workdash/static/css/main.1fe41aac.chunk.css.map",
-    "static/js/2.b0ffb777.chunk.js.LICENSE.txt": "/workdash/static/js/2.b0ffb777.chunk.js.LICENSE.txt"
+    "static/css/main.5b5f76bb.chunk.css.map": "/workdash/static/css/main.5b5f76bb.chunk.css.map",
+    "static/js/2.b7df589d.chunk.js.LICENSE.txt": "/workdash/static/js/2.b7df589d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.da8d3b3b.js",
-    "static/js/2.b0ffb777.chunk.js",
-    "static/css/main.1fe41aac.chunk.css",
-    "static/js/main.87aed338.chunk.js"
+    "static/js/2.b7df589d.chunk.js",
+    "static/css/main.5b5f76bb.chunk.css",
+    "static/js/main.a28321c0.chunk.js"
   ]
 }
