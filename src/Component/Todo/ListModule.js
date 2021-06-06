@@ -1,3 +1,10 @@
+/*代办todo列表的显示模块 
+ *实现任务的勾选， 点击后和EditModule联动在edit中进一步编辑功能
+ *提供排序功能 已完成项目隐藏功能
+ * 
+ * 贺烨毅 2019210737
+ */
+
 import React, { Component } from 'react';
 import { Checkbox ,Switch} from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -93,29 +100,43 @@ class ListModule extends Component {
                 orderByName: this.props.orderByName,
             })
         }
+        //排序功能和已完成项目隐藏功能的触发
+        /*
+        整个功能的思路： 、
+        按照优先级， 按照名称排序，已经隐藏已经完成项目三个开关和功能是独立叠加的
+        三个功能在本质上只是显示的不同， 并不改变上层模块中的总todoData的数据，也不需要进行新的数据的回传
+        所以只需要写出三个功能，有条件地叠加即可。
+        但是如果关闭一些功能，需要对state的todo进行重新赋值
+        对state的数据的刷新，需要使用lifecycle函数的prevState和当前state进行对比，
+        检测之前为开启，现在是关闭的状态
+        */ 
+       //检测按钮的状态发生了改变
         if(prevState.hideDone!==this.state.hideDone ||
             prevState.orderByName!==this.state.orderByName ||
             prevState.orderByProperty!==this.state.orderByProperty)
         {
+            //保存修改之前的todo数据
             let data = [...this.state.data];
             const fullData = [...this.props.todoData];
             console.log("switch update")
+            //如果按钮从开启变为了关闭
             if((prevState.hideDone===true&&this.state.hideDone===false)||
                 (prevState.orderByName===true&&this.state.orderByName===false)||
                 (prevState.orderByProperty===true&&this.state.orderByProperty===false)){
                     console.log("Emmmm, Don't be sad, I am working")
                     this.setState({
                         // data: fullData,
-                        joker:fullData,//毫無意義但是我捨不得刪
+                        joker:fullData,//此变量用于debug
                     })
-                    data = fullData;
+                    data = fullData;  //对data重新赋为值
                 }
-            
+            //按照名称排序的模块
             if(this.props.orderByName){
                 let title = data.map(item => item.title);
                 title = title.sort();
                 let newData = [];
                 const prevData = [...data];
+                //使用遍历的for循环实现换序
                 console.log(title,"Array XD");
                 for (let i=0;  i < title.length;i++){
                     console.log("I am sure I am looping")
@@ -129,6 +150,7 @@ class ListModule extends Component {
                 data = [...newData];
                 console.log(newData,"New data")
             }
+            //按照优先级来进行排序，进行筛选，然后重新组合数组
             if(this.props.orderByProperty){
                 const dataPropoty = data.filter(item => (item.propoty===true && item.checked===false))
                 const dataCommon = data.filter(item =>(item.propoty===false && item.checked===false))
@@ -166,7 +188,7 @@ class ListModule extends Component {
             index: index,
         })
     }
-
+    //开关的触发函数
     hideDoneMethod = () =>{
         let hideDone = this.props.hideDone;
         hideDone = !hideDone;

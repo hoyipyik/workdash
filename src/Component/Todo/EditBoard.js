@@ -1,9 +1,18 @@
+/*EditBoard的界面
+ * listModule的点击项目触发后，在editboard中显示对应的条目的详细信息
+ * 可以对标题，描述， 重要性进行修改，可以对单个项目进行删除的操作
+ * 设定中， 相应的功能开启的时候
+ * 可以标记提前完成
+ * 设定番茄工作周期， 直接进行番茄钟的联动触发。
+ *
+ * 贺烨毅 2019210737
+ */
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {Switch, Slider} from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { blue, green} from '@material-ui/core/colors';
-//
+
 class EditBoard extends Component {
 //state初始化 设定参数的接收
     constructor(props){

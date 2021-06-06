@@ -1,3 +1,7 @@
+/*番茄倒计时的模块， 可以和todo的timing 按钮进行联动，显示剩余的番茄工作周期
+ * 倒计时的功能
+ * 贺烨毅 2019210737
+ */
 import React from 'react';
 import { useState, useEffect } from 'react';
 // import {Switch} from "@material-ui/core";
@@ -7,8 +11,8 @@ import "./Clock.css";
 
 const CountDown=(props) =>{
     //初始化番茄钟 休息和工作的秒数的参数
-    let time = 1500;
-    let freeTime = 300;
+    const time = 1500;
+    const freeTime = 300;
     //state中添加 计时器 状态 工作休息判断 工作轮数 上层工作状态的轮数
     const [counter, setCounter] = useState(time);
     const [isActive, setIsActive] = useState(false);

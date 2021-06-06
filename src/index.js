@@ -1,3 +1,7 @@
+/*react index的部分
+ * 
+ * 贺烨毅 2019210737
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -14,6 +18,6 @@ ReactDOM.render(
 );
 
 //离线使用 安装为webapp的设定选项
-serviceWorkerRegistration.unregister();
+serviceWorkerRegistration.register();
 
 reportWebVitals();

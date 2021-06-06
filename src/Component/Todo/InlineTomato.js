@@ -1,3 +1,7 @@
+/*Inline模式下的使用 在todo的界面内来显示番茄计时器 来调用CoutDown模块
+ * 
+ * 贺烨毅 2019210737
+ */
 import React, { Component } from 'react';
 
 import CountDown from "../Clock/CountDown"

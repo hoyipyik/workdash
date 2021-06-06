@@ -1,13 +1,15 @@
+/*程序顶部的main组件，程序的main组件， 用作路由的设定和全局设定变量的储存
+ *作为最顶层的容器 
+ *
+ * 贺烨毅 2019210737
+ */
 import React, { Component } from 'react';
 import { Switch , Route} from 'react-router-dom';
 import Todo from "./Component/Todo/Todo";
-import Board from "./Component/Boards/Board";
 import Settings from "./Component/Settings";
 import Clock from "./Component/Clock/Clock";
 import Navibar from "./Component/Navibar";
 import About from "./Component/About"
-
-//程序的main组件， 用作路由的设定和全局设定变量的储存
 
 class App extends Component {
 //构造函数
@@ -21,7 +23,7 @@ class App extends Component {
       enableTomato:true,
       inlineTomato:true,
       encourageMode:true,
-      enableOrder:true,
+      enableOrder:true, 
     }
   }
 //lifecycle函数 从localStorage读取先前存储的设定参数
@@ -99,7 +101,7 @@ componentDidUpdate(prevState){
   }
 
 
-  //下面的四个函数分别对四个设定参数进行了回传的赋值，用于子模块调用
+  //下面的四个函数分别对四个设定参数进行了回传的赋值，用于子模块调用 
 
   updateRestricMode = (item) =>{
     this.setState({
@@ -149,9 +151,9 @@ componentDidUpdate(prevState){
               enableOrder={this.state.enableOrder}
             />
           </Route>
-          <Route path="/board">
+          {/* <Route path="/board">
             <Board/>
-          </Route>
+          </Route> */}
           <Route path="/clock" target="_blank" rel="noopener noreferrer">
             <Clock
               Times ={this.state.Times}

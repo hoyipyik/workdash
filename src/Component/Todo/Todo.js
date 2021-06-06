@@ -1,10 +1,14 @@
+/*todo功能的顶部组件， 作为了AddModule， ListModule, EditModule, InlinTomato的容器
+ *存放todoData数组， 顶层函数和一些临时的参数 
+ * 
+ * 贺烨毅 2019210737
+ */
 import React, { Component } from 'react';
 import CountDown from '../Clock/CountDown';
 import InlineTomato from "./InlineTomato";
 import AddModule from "./AddModule";
 import EditBoard from './EditBoard';
 import ListModule from "./ListModule";
-// todo部分的中心component todo数据的中心和最高曾 
 class Todo extends Component {
     //初始化state 同时接收App.js传来的设定参数
     constructor(props){
@@ -24,41 +28,7 @@ class Todo extends Component {
 
 //lifecycle函数 从localStorage读取todo数据的document                       
 componentDidMount(){
-    const documentData = JSON.parse(localStorage.getItem("todo"));
-    // const documentHideDone = JSON.parse(localStorage.getItem("hideDone"));
-    // const documentOrderByName = JSON.parse(localStorage.getItem("orderByName"));
-    // const documentOrderByProperty = JSON.parse(localStorage.getItem("orderByProperty"));
-    
-    // if(documentOrderByName!==null){
-    //     this.setState({ 
-    //         orderByName:documentOrderByName,
-    //     })
-    // }else{
-    //     this.setState({
-    //         orderByName:false,
-    //     })
-    // }
-
-    // if(documentOrderByProperty!==null){
-    //     this.setState({ 
-    //         orderByProperty:documentOrderByProperty,
-    //     })
-    // }else{
-    //     this.setState({
-    //         orderByProperty:false,
-    //     })
-    // }
-
-    // if(documentHideDone!==null){
-    //     this.setState({ 
-    //         hideDone:documentHideDone,
-    //     })
-    // }else{
-    //     this.setState({
-    //         hideDone:false,
-    //     })
-    // }
-
+    const documentData = JSON.parse(localStorage.getItem("todo"))
     if (documentData !== null){
       this.setState({
         todoData:documentData,
@@ -91,7 +61,7 @@ componentDidMount(){
                 checked:false,
                 title:"Design a chip",
                 tomatoNumber:3,
-                body:"We BUPTers can carve a chip by hand, Cry Dutchess :<",
+                body:"We BUPTers can carve a chip by hand",
                 propoty:true, 
                 encourage:false,
             },
@@ -123,15 +93,6 @@ componentDidMount(){
         if(prevState.todoData!==this.state.todoData){
             localStorage.setItem("todo",JSON.stringify( this.state.todoData));
         }
-        // if(prevState.hideDone!==this.state.hideDone){
-        //     localStorage.setItem("hideDone",JSON.stringify(this.state.hideDone))
-        // }
-        // if(prevState.orderByName!==this.state.orderByName){
-        //     localStorage.setItem("orderByName",JSON.stringify(this.state.orderByName))
-        // }
-        // if(prevState.orderByProperty!==this.state.orderByName){
-        //     localStorage.setItem("orderByProperty",JSON.stringify(this.state.orderByProperty))
-        // }
     }
 
     //任务增加函数 
@@ -155,14 +116,14 @@ componentDidMount(){
         })
     }
     //更新todoData 函数
-    //从editboard中接收修改后的新的todoData进行更新
+    //从editboard中接收修改后的新的todoData进行更新 向上参数传递函数
     updateItemStatus = item => {
         this.setState({
             todoData:item,
         })
     }
     //index更新函数
-    //接收listmodule中点击的条目对应的id，更新state中的index方便传递到editmodule中
+    //接收listmodule中点击的条目对应的id，更新state中的index方便传递到editmodule中 向上参数传递函数
     updateIndexStatus = index =>{
         this.setState({
             index: index,
@@ -231,25 +192,25 @@ componentDidMount(){
         })
     }
 
-
+    //隐藏已经完成的部分 向上参数传递函数
     updateHideDone = (event) =>{
         this.setState({
             hideDone: event,
         }) 
     }
-
+    //按照名称进行排序 向上参数传递函数
     updateOrderByName =(event) =>{
         this.setState({
             orderByName: event,
         })
     }
-
+    //按照优先级排序 向上参数传递函数
     updateOrderByProperty = (event)=>{
         this.setState({
             orderByProperty:event,
         })
     }
-
+    // 页面显示
     render() {
         return (
             <div className="container">

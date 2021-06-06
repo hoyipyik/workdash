@@ -1,3 +1,7 @@
+/*时钟的顶层模块 作为timer和countdown的容器
+ * 
+ * 贺烨毅 2019210737
+ */
 import React, { Component } from 'react';
 import Timer from "./Timer";
 import CountDown from "./CountDown";

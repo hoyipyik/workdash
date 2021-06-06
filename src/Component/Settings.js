@@ -1,8 +1,12 @@
+/*设定界面 setting的component，进行功能选项的设置
+ * 
+ * 贺烨毅 2019210737
+ */
 import React, { Component } from 'react';
 import {Switch} from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { blue, green} from '@material-ui/core/colors';
-//设定界面 setting的component，进行功能选项的设置
+
 class Settings extends Component {
     //设定switch组建的样式
     switchTheme = createMuiTheme({
