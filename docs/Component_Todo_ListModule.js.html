@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Component/Todo/ListModule.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Component/Todo/ListModule.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  *代办todo列表的显示模块 
  *实现任务的勾选， 点击后和EditModule联动在edit中进一步编辑功能
  *提供排序功能 已完成项目隐藏功能
@@ -20,12 +48,12 @@ import { withStyles } from '@material-ui/core/styles';
 const EncourageCheckbox = withStyles({
     root: {
     //   color: green[400],
-      '&$checked': {
+      '&amp;$checked': {
         color: green[300],
       },
     },
     checked: {},
-  })((props) => <Checkbox color="default" {...props} />);
+  })((props) => &lt;Checkbox color="default" {...props} />);
 
 /**
  * todo.js的第二部分的左边的任务展示区域的component
@@ -151,9 +179,9 @@ class ListModule extends Component {
             const fullData = [...this.props.todoData];
             console.log("switch update")
             //如果按钮从开启变为了关闭
-            if((prevState.hideDone===true&&this.state.hideDone===false)||
-                (prevState.orderByName===true&&this.state.orderByName===false)||
-                (prevState.orderByProperty===true&&this.state.orderByProperty===false)){
+            if((prevState.hideDone===true&amp;&amp;this.state.hideDone===false)||
+                (prevState.orderByName===true&amp;&amp;this.state.orderByName===false)||
+                (prevState.orderByProperty===true&amp;&amp;this.state.orderByProperty===false)){
                     console.log("Emmmm, Don't be sad, I am working")
                     this.setState({
                         // data: fullData,
@@ -169,9 +197,9 @@ class ListModule extends Component {
                 const prevData = [...data];
                 //使用遍历的for循环实现换序
                 console.log(title,"Array XD");
-                for (let i=0;  i < title.length;i++){
+                for (let i=0;  i &lt; title.length;i++){
                     console.log("I am sure I am looping")
-                    for(let j=0; j< prevData.length; j++){
+                    for(let j=0; j&lt; prevData.length; j++){
                         console.log(prevData[j],"hey")
                         if(prevData[j].title==title[i]){
                             newData[i] = prevData[j];
@@ -183,10 +211,10 @@ class ListModule extends Component {
             }
             //按照优先级来进行排序，进行筛选，然后重新组合数组
             if(this.props.orderByProperty){
-                const dataPropoty = data.filter(item => (item.propoty===true && item.checked===false))
-                const dataCommon = data.filter(item =>(item.propoty===false && item.checked===false))
-                const dataDonePropoty = data.filter(item => (item.checked===true&&item.propoty===true))
-                const dataDoneCommon = data.filter(item => (item.checked===true&&item.propoty===false))
+                const dataPropoty = data.filter(item => (item.propoty===true &amp;&amp; item.checked===false))
+                const dataCommon = data.filter(item =>(item.propoty===false &amp;&amp; item.checked===false))
+                const dataDonePropoty = data.filter(item => (item.checked===true&amp;&amp;item.propoty===true))
+                const dataDoneCommon = data.filter(item => (item.checked===true&amp;&amp;item.propoty===false))
                 data = [...dataPropoty, ...dataCommon, ...dataDonePropoty, ...dataDoneCommon];
             }
 
@@ -274,48 +302,48 @@ class ListModule extends Component {
         const rows = data.map((row, index)=>{
             return(
                 //使用了key来重用列表
-                <tr key={index}>
-                    <div onClick={()=>this.sendIndex(row.id)}>
-                    <ThemeProvider theme={this.checkboxTheme}>
-                    {(row.encourage&&this.props.encourageMode)?
-                        <EncourageCheckbox 
+                &lt;tr key={index}>
+                    &lt;div onClick={()=>this.sendIndex(row.id)}>
+                    &lt;ThemeProvider theme={this.checkboxTheme}>
+                    {(row.encourage&amp;&amp;this.props.encourageMode)?
+                        &lt;EncourageCheckbox 
                             checked={row.checked}
                             color={row.propoty?"secondary":"primary"}
                             onClick={()=>this.handleCheckboxChange(index)} 
                             />
-                        :<Checkbox 
+                        :&lt;Checkbox 
                             checked={row.checked}
                             color={row.propoty?"secondary":"primary"}
                             onClick={()=>this.handleCheckboxChange(index)} 
                             />
                     }
-                        </ThemeProvider>
-                        <span
+                        &lt;/ThemeProvider>
+                        &lt;span
                             //重要的任务文字粗体显示 已经完成则是勾划掉的字体
                             style={{ textDecoration: row.checked ? "line-through" : null,
                             marginLeft:16, fontWeight: row.propoty ? "bold" : null,
                                 }}
                         >
                                {row.title}
-                        </span>
-                        <span>
-                        </span>
-                    </div>
-                </tr>
+                        &lt;/span>
+                        &lt;span>
+                        &lt;/span>
+                    &lt;/div>
+                &lt;/tr>
             )
         })
         return(
-            <div className="container">
-            <h3>List </h3>
-            <table>
-            {rows.length===0?<tbody style={{fontWeight:"bold"}}>. . . . .  .</tbody>:
-                <tbody>{rows}</tbody>}
-            </table>
-            {this.props.enableOrder &&<div>
-            <h4>Order Type</h4>
-                <label>Hide Done</label>
-                <ThemeProvider >
-                    <Switch
+            &lt;div className="container">
+            &lt;h3>List &lt;/h3>
+            &lt;table>
+            {rows.length===0?&lt;tbody style={{fontWeight:"bold"}}>. . . . .  .&lt;/tbody>:
+                &lt;tbody>{rows}&lt;/tbody>}
+            &lt;/table>
+            {this.props.enableOrder &amp;&amp;&lt;div>
+            &lt;h4>Order Type&lt;/h4>
+                &lt;label>Hide Done&lt;/label>
+                &lt;ThemeProvider >
+                    &lt;Switch
                         disabled={disableHideDone}
                         // disabled={true}
                         checked={this.props.hideDone}
@@ -324,32 +352,54 @@ class ListModule extends Component {
                         color="secondary"
                         onChange={this.hideDoneMethod}
                         />
-                    </ThemeProvider>
-                <label>Order By Name</label>
-                <ThemeProvider >
-                    <Switch
+                    &lt;/ThemeProvider>
+                &lt;label>Order By Name&lt;/label>
+                &lt;ThemeProvider >
+                    &lt;Switch
                         checked={this.props.orderByName}
                         name="orderByName"
                         id="orderByName"
                         color="primary"
                         onChange={this.orderByNameMethod}
                         />
-                    </ThemeProvider>
-                <label>Order By Property</label>
-                <ThemeProvider >
-                    <Switch
+                    &lt;/ThemeProvider>
+                &lt;label>Order By Property&lt;/label>
+                &lt;ThemeProvider >
+                    &lt;Switch
                         checked={this.props.orderByProperty}
                         name="orderByProperty"
                         id="orderByProperty"
                         color="primary"
                         onChange={this.orderByPropertyMethod}
                         />
-                    </ThemeProvider>
-                </div>}
-            </div>
+                    &lt;/ThemeProvider>
+                &lt;/div>}
+            &lt;/div>
         )
         
     }
 }
 
-export default ListModule;
+export default ListModule;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-filreExtensionRegexp.html">filreExtensionRegexp</a></li><li><a href="module-index.html">index</a></li><li><a href="module-reportWebVitals.html">reportWebVitals</a></li><li><a href="module-serviceWorkerRegistration.html">serviceWorkerRegistration</a></li></ul><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AddModule.html">AddModule</a></li><li><a href="App.html">App</a></li><li><a href="Clock.html">Clock</a></li><li><a href="CountDown.html">CountDown</a></li><li><a href="EditBoard.html">EditBoard</a></li><li><a href="InlineTomato.html">InlineTomato</a></li><li><a href="ListModule.html">ListModule</a></li><li><a href="Navibar.html">Navibar</a></li><li><a href="Settings.html">Settings</a></li><li><a href="Timer.html">Timer</a></li><li><a href="Todo.html">Todo</a></li></ul><h3>Global</h3><ul><li><a href="global.html#EncourageCheckbox">EncourageCheckbox</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Wed Jun 09 2021 17:40:53 GMT+0800 (Hong Kong Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

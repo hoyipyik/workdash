@@ -1,4 +1,15 @@
-// wpa的相关设定
+/**
+ * wpa的相关设定
+ * @module
+ * reportWebVitals
+ * @author 贺烨毅 2019210737
+ */
+
+/**
+ * @function reportWebViatals
+ * @param  {} onPerfEntry
+ * @memberof reportWebVitals
+ */
 const reportWebVitals = (onPerfEntry) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {

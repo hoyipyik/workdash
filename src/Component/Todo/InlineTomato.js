@@ -1,17 +1,28 @@
-/*Inline模式下的使用 在todo的界面内来显示番茄计时器 来调用CoutDown模块
- * 
- * 贺烨毅 2019210737
+/**
+ * Inline模式下的使用 在todo的界面内来显示番茄计时器 来调用CoutDown模块
+ * @component
+ * @author 贺烨毅 2019210737
  */
 import React, { Component } from 'react';
 
 import CountDown from "../Clock/CountDown"
-//inlinetomato组件的component 为了提高可读性 是todo.js的部分的第三部分的component
+/**
+ * Inline模式下的使用 在todo的界面内来显示番茄计时器 来调用CoutDown模块
+ * 
+ * inlinetomato组件的component 为了提高可读性 是todo.js的部分的第三部分的component
+ * @author 贺烨毅 2019210737
+ */
 class InlineTomato extends Component {
-
+    /**
+     * constructor function
+     * @param  {object} props
+     */
     constructor(props){
         super(props);
     }
-
+    /**
+     * render
+     */
     render() {
         return (
             <div>

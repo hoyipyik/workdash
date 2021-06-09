@@ -10,12 +10,14 @@ import About from "./Component/About"
  *程序顶部的main组件，程序的main组件， 用作路由的设定和全局设定变量的储存
  *作为最顶层的容器 
  * @component
+ * @author 贺烨毅 2019210737
+ * 
  */
 class App extends Component {
   /**
    * constructor function in React Lifecycle
    * 构造函数
-   * @param  {object} props
+   * @param  {object} props 本component的props
    */
   constructor(props) {
     super(props);
@@ -94,7 +96,7 @@ class App extends Component {
  * componentDidUpdate
  * lifecycle函数 state中的数据出现变化之后，向localStorage对应的document赋值，相当于本地的储存环节
  * 这里对应的也是四个设定参数的本地储存 
- * @param  {object} prevState
+ * @param  {object} prevState 前一个状态的state
  * @memberof App
  */
 componentDidUpdate(prevState){

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Global</title>
+    <title>JSDoc: Source: Component/Todo/InlineTomato.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,165 +17,59 @@
 
 <div id="main">
 
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">Source: Component/Todo/InlineTomato.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2></h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="EncourageCheckbox"><span class="type-signature">(constant) </span>EncourageCheckbox<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>用函数模式定义了encouragemode下的勾选颜色为绿色的checkbox的样式</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>贺烨毅 2019210737</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line20">line 20</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Inline模式下的使用 在todo的界面内来显示番茄计时器 来调用CoutDown模块
+ * @component
+ * @author 贺烨毅 2019210737
+ */
+import React, { Component } from 'react';
+
+import CountDown from "../Clock/CountDown"
+/**
+ * Inline模式下的使用 在todo的界面内来显示番茄计时器 来调用CoutDown模块
+ * 
+ * inlinetomato组件的component 为了提高可读性 是todo.js的部分的第三部分的component
+ * @author 贺烨毅 2019210737
+ */
+class InlineTomato extends Component {
+    /**
+     * constructor function
+     * @param  {object} props
+     */
+    constructor(props){
+        super(props);
+    }
+    /**
+     * render
+     */
+    render() {
+        return (
+            &lt;div>
+                &lt;h3>Inline Tomato Clock&lt;/h3>
+                    &lt;CountDown
+                        // 将设定参数和工作周期传递给countdown， 重用countdown component
+                        Times = {this.props.Times}
+                        enableTomato={this.props.enableTomato}
+                        restrictMode={this.props.restrictMode}
+                        inlineTomato={this.props.inlineTomato}
+                    />
+            &lt;/div>
+        );
+    }
+}
+
+export default InlineTomato;</code></pre>
+        </article>
+    </section>
 
 
 

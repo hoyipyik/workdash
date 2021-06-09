@@ -1,6 +1,10 @@
-/*react index的部分
+/**
+ * 用App component替换空html页面id为root的div， 同时启用react-route-dom路由
+ * @module
+ * index
+ * @author 贺烨毅 2019210737
  * 
- * 贺烨毅 2019210737
+ *
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,7 +13,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
-//用App component替换空html页面id为root的div， 同时启用react-route-dom路由
+
 ReactDOM.render(
   <BrowserRouter>
     <App />

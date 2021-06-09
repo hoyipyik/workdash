@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Global</title>
+    <title>JSDoc: Source: service-worker.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,165 +17,74 @@
 
 <div id="main">
 
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">Source: service-worker.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2></h2>
-        
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * pwa相关的设定
+ * @module
+ * filreExtensionRegexp
+ * @author 贺烨毅 2019210737
+ */
+
+import { clientsClaim } from 'workbox-core';
+import { ExpirationPlugin } from 'workbox-expiration';
+import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
+import { registerRoute } from 'workbox-routing';
+import { StaleWhileRevalidate } from 'workbox-strategies';
+
+clientsClaim();
+
+precacheAndRoute(self.__WB_MANIFEST);
+
+
+const fileExtensionRegexp = new RegExp('/[^/?]+\\.[^/]+$');
+registerRoute(
+ 
+  ({ request, url }) => {
     
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="EncourageCheckbox"><span class="type-signature">(constant) </span>EncourageCheckbox<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>用函数模式定义了encouragemode下的勾选颜色为绿色的checkbox的样式</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>贺烨毅 2019210737</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line20">line 20</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    if (request.mode !== 'navigate') {
+      return false;
+    } 
+
+    if (url.pathname.startsWith('/_')) {
+      return false;
+    } 
+    if (url.pathname.match(fileExtensionRegexp)) {
+      return false;
+    } 
+
+    return true;
+  },
+  createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
+);
+
+registerRoute(
+ 
+  ({ url }) => url.origin === self.location.origin &amp;&amp; url.pathname.endsWith('.png'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+  new StaleWhileRevalidate({
+    cacheName: 'images',
+    plugins: [
+      
+      new ExpirationPlugin({ maxEntries: 50 }),
+    ],
+  })
+);
+
+self.addEventListener('message', (event) => {
+  if (event.data &amp;&amp; event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+</code></pre>
+        </article>
+    </section>
 
 
 

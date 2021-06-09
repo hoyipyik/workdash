@@ -1,4 +1,9 @@
-// pwa相关的设定
+/**
+ * pwa相关的设定
+ * @module
+ * filreExtensionRegexp
+ * @author 贺烨毅 2019210737
+ */
 
 import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';

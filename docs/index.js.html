@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Global</title>
+    <title>JSDoc: Source: index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,165 +17,45 @@
 
 <div id="main">
 
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">Source: index.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2></h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="EncourageCheckbox"><span class="type-signature">(constant) </span>EncourageCheckbox<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>用函数模式定义了encouragemode下的勾选颜色为绿色的checkbox的样式</p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>贺烨毅 2019210737</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line20">line 20</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * 用App component替换空html页面id为root的div， 同时启用react-route-dom路由
+ * @module
+ * index
+ * @author 贺烨毅 2019210737
+ * 
+ *
+ */
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from "react-router-dom";
+
+ReactDOM.render(
+  &lt;BrowserRouter>
+    &lt;App />
+  &lt;/BrowserRouter>,
+  document.getElementById('root')
+);
+
+//离线使用 安装为webapp的设定选项
+serviceWorkerRegistration.register();
+
+reportWebVitals();
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -1,6 +1,7 @@
-/* clock资料夹下的timer和countdown componets的样式 
- *
- *因为居中的设计， 所以要增加一些修改 */
+/**
+ * clock资料夹下的timer和countdown componets的样式 
+ * @author 贺烨毅 2019210737
+ * 因为居中的设计， 所以要增加一些修改 */
 .app {
     text-align: center;
     background-color: rgb(235, 235, 235);

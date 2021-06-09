@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: App</title>
+    <title>JSDoc: Class: ListModule</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: App</h1>
+    <h1 class="page-title">Class: ListModule</h1>
 
     
 
@@ -28,10 +28,12 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>App<span class="signature">(props)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>ListModule<span class="signature">(props)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>程序顶部的main组件，程序的main组件， 用作路由的设定和全局设定变量的储存
-作为最顶层的容器</p></div>
+            <div class="class-description"><p>todo.js的第二部分的左边的任务展示区域的component</p>
+<p>代办todo列表的显示模块
+实现任务的勾选， 点击后和EditModule联动在edit中进一步编辑功能
+提供排序功能 已完成项目隐藏功能</p></div>
         
     
 </header>
@@ -46,7 +48,7 @@
     
 
     
-    <h4 class="name" id="App"><span class="type-signature"></span>new App<span class="signature">(props)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ListModule"><span class="type-signature"></span>new ListModule<span class="signature">(props)</span><span class="type-signature"></span></h4>
     
 
     
@@ -54,8 +56,7 @@
 
 
 <div class="description">
-    <p>constructor function in React Lifecycle
-构造函数</p>
+    <p>constructor function</p>
 </div>
 
 
@@ -107,7 +108,7 @@
 
             
 
-            <td class="description last"><p>本component的props</p></td>
+            <td class="description last"><p>the props of the component</p></td>
         </tr>
 
     
@@ -155,7 +156,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line16">line 16</a>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line39">line 39</a>
     </li></ul></dd>
     
 
@@ -205,13 +206,13 @@
 
         
             
-<h4 class="name" id="state"><span class="type-signature"></span>state<span class="type-signature"></span></h4>
+<h4 class="name" id="checkboxTheme"><span class="type-signature"></span>checkboxTheme<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    <p>State of App</p>
+    <p>checkbox的样式颜色的设定</p>
 </div>
 
 
@@ -249,7 +250,69 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line28">line 28</a>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="state"><span class="type-signature"></span>state<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>State of component</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line52">line 52</a>
     </li></ul></dd>
     
 
@@ -277,7 +340,7 @@
     
 
     
-    <h4 class="name" id=".updateEnableOrder"><span class="type-signature">(static) </span>updateEnableOrder<span class="signature">(item)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".handleCheckboxChange"><span class="type-signature">(static) </span>handleCheckboxChange<span class="signature">(index)</span><span class="type-signature"></span></h4>
     
 
     
@@ -285,7 +348,7 @@
 
 
 <div class="description">
-    <p>设定参数进行了回传的赋值，used for enableOrder</p>
+    <p>勾选取消勾选的反馈函数</p>
 </div>
 
 
@@ -321,692 +384,7 @@
 
         <tr>
             
-                <td class="name"><code>item</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line180">line 180</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id=".updateEnableTomato"><span class="type-signature">(static) </span>updateEnableTomato<span class="signature">(item)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>设定参数进行了回传的赋值，used for enabletomato</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>item</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line144">line 144</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id=".updateEncourageMode"><span class="type-signature">(static) </span>updateEncourageMode<span class="signature">(item)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>设定参数进行了回传的赋值，used for encourageMode</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>item</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line168">line 168</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id=".updateInlineTomato"><span class="type-signature">(static) </span>updateInlineTomato<span class="signature">(item)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>设定参数进行了回传的赋值，used for inlinetomato</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>item</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line156">line 156</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id=".updateRestricMode"><span class="type-signature">(static) </span>updateRestricMode<span class="signature">(item)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>设定参数进行了回传的赋值，used for restrict mode</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>item</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line133">line 133</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id=".updateTomatoTimes"><span class="type-signature">(static) </span>updateTomatoTimes<span class="signature">(item)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    <p>番茄钟次数的赋值函数， 用于子模块调用</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>item</code></td>
+                <td class="name"><code>index</code></td>
             
 
             <td class="type">
@@ -1022,7 +400,7 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last"><p>index of the selected item</p></td>
         </tr>
 
     
@@ -1063,7 +441,408 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line119">line 119</a>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line208">line 208</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".hideDoneMethod"><span class="type-signature">(static) </span>hideDoneMethod<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>开关的触发函数</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line233">line 233</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".orderByNameMethod"><span class="type-signature">(static) </span>orderByNameMethod<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>order by name method</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line245">line 245</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".orderByPropotyMethod"><span class="type-signature">(static) </span>orderByPropotyMethod<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>order by property method</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line257">line 257</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".sendIndex"><span class="type-signature">(static) </span>sendIndex<span class="signature">(index)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>序号传递函数 点击条目之后传递对应的序号， 传给上一层， todo将会把它传给edit来显示对应条目的详细内容</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>index of the selected item</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line222">line 222</a>
     </li></ul></dd>
     
 
@@ -1107,7 +886,7 @@
 
 
 <div class="description">
-    <p>lifecycle函数 从localStorage读取先前存储的设定参数</p>
+    <p>lifecycle函数 对index进行了数据初始化</p>
 </div>
 
 
@@ -1151,7 +930,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line47">line 47</a>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line81">line 81</a>
     </li></ul></dd>
     
 
@@ -1187,7 +966,7 @@
     
 
     
-    <h4 class="name" id="componentDidUpdate"><span class="type-signature"></span>componentDidUpdate<span class="signature">(prevState)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="componentDidUpdate"><span class="type-signature"></span>componentDidUpdate<span class="signature">(prevProps, prevState)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1195,9 +974,7 @@
 
 
 <div class="description">
-    <p>componentDidUpdate
-lifecycle函数 state中的数据出现变化之后，向localStorage对应的document赋值，相当于本地的储存环节
-这里对应的也是四个设定参数的本地储存</p>
+    <p>lifecycle函数 对data进行更新， 同时如果有数据变动， 将数据传回到上一层中</p>
 </div>
 
 
@@ -1233,6 +1010,29 @@ lifecycle函数 state中的数据出现变化之后，向localStorage对应的do
 
         <tr>
             
+                <td class="name"><code>prevProps</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>former props of component</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>prevState</code></td>
             
 
@@ -1249,7 +1049,7 @@ lifecycle函数 state中的数据出现变化之后，向localStorage对应的do
 
             
 
-            <td class="description last"><p>前一个状态的state</p></td>
+            <td class="description last"><p>former state of component</p></td>
         </tr>
 
     
@@ -1290,7 +1090,7 @@ lifecycle函数 state中的数据出现变化之后，向localStorage对应的do
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line102">line 102</a>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line97">line 97</a>
     </li></ul></dd>
     
 
@@ -1334,8 +1134,7 @@ lifecycle函数 state中的数据出现变化之后，向localStorage对应的do
 
 
 <div class="description">
-    <p>render函数， 进行显示， 此处主要是react-route-dom的路由的设定和参数的传递
-lifecycle method</p>
+    <p>render()</p>
 </div>
 
 
@@ -1379,7 +1178,7 @@ lifecycle method</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line195">line 195</a>
+        <a href="Component_Todo_ListModule.js.html">Component/Todo/ListModule.js</a>, <a href="Component_Todo_ListModule.js.html#line270">line 270</a>
     </li></ul></dd>
     
 

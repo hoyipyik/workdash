@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Component/Clock/Clock.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,56 +17,63 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Component/Clock/Clock.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>WorkDash</h1>
-<p>React App combining to do lists and tomato clock together</p>
-<h2>Things to Know</h2>
-<!-- For the App is composed with React.js, all component variables are stored in objects owned by each component called state.
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * 时钟的顶层模块 作为timer和countdown的容器
+ * @component
+ * 贺烨毅 2019210737
+ */
+import React, { Component } from 'react';
+import Timer from "./Timer";
+import CountDown from "./CountDown";
+/**
+ * clock界面的component， 作为了timer和countdown的承载component
+ * @author 贺烨毅 2019210737
+ */
+class Clock extends Component {
+    /**
+     * @method render
+     * @memberof Clock
+     * @author 贺烨毅 2019210737
+     */
+    render() {
+        return (
+            &lt;div className="container">
+               {/* &lt;h1>Clock&lt;/h1> */}
+               &lt;div className="flex-row">
+               {/* 调用flex-large的classname，在大荧幕的状态左右的grid各占1/2 */}
+                    &lt;div className="flex-large">
+                    &lt;h3>Timer&lt;/h3>
+                        &lt;Timer/>                        
+                    &lt;/div>
+                    &lt;div className="flex-large">
+                    &lt;h3>Count Down&lt;/h3>
+                        &lt;CountDown
+                        // 给countdown传递参数
+                            Times = {this.props.Times}
+                            enableTomato={this.props.enableTomato}
+                            restrictMode={this.props.restrictMode}
+                            inlineTomato={this.props.inlineTomato}
+                        />
+                    &lt;/div>
+               &lt;/div>
+               
+           &lt;/div>
+        );
+    }
+}
 
-So you can't find the variables of the App in the doc created automatically by the jsdoc tool. -->
-<p>因为使用了react.js来写软件, 根据react的规则, 每个component的变量都是存放在state中的， jsdoc只能检测到class中一个叫 state 的 member。所以如果想看到详细的变量信息，麻烦在state处点击对应的代码索引到代码中查看，我已经做了详细的标注。</p>
-<p>在原生的react的规则下，下层向上层传递参数，必须调用上层的函数，所以较高的层级的component会不可避免地出现行数较多的现象。arrow function的this必须指向对应的对象，一个component的最直接的函数必须放在一起。对todo和clock我已经尽可能按照逻辑来对界面拆分了，其他的确实无法拆分。如果继续拆分会破坏功能。</p>
-<p>react在前端的使用非常广泛， 这个问题是框架限制所致，希望老师谅解。</p>
-<h2>Use</h2>
-<ul>
-<li>Develop Mode</li>
-</ul>
-<pre class="prettyprint source"><code>yarn install
-</code></pre>
-<pre class="prettyprint source"><code>yarn start
-</code></pre>
-<ul>
-<li>Web App Demo</li>
-</ul>
-<p>https://hoyipyik.github.io/workdash</p></article>
+export default Clock;</code></pre>
+        </article>
     </section>
-
-
 
 
 

@@ -1,13 +1,21 @@
-/*时钟的顶层模块 作为timer和countdown的容器
- * 
+/**
+ * 时钟的顶层模块 作为timer和countdown的容器
+ * @component
  * 贺烨毅 2019210737
  */
 import React, { Component } from 'react';
 import Timer from "./Timer";
 import CountDown from "./CountDown";
-//clock界面的component， 作为了timer和countdown的承载component
+/**
+ * clock界面的component， 作为了timer和countdown的承载component
+ * @author 贺烨毅 2019210737
+ */
 class Clock extends Component {
-
+    /**
+     * @method render
+     * @memberof Clock
+     * @author 贺烨毅 2019210737
+     */
     render() {
         return (
             <div className="container">

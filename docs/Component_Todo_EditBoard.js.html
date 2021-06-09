@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Component/Todo/EditBoard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Component/Todo/EditBoard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
  * EditBoard的界面
  * listModule的点击项目触发后，在editboard中显示对应的条目的详细信息
  * 可以对标题，描述， 重要性进行修改，可以对单个项目进行删除的操作
@@ -191,22 +219,22 @@ class EditBoard extends Component {
         
         return (
             
-            <div className="container">
-                <h3>Edit</h3>
-                <form>
-                    <label>Title</label>
-                    <input
+            &lt;div className="container">
+                &lt;h3>Edit&lt;/h3>
+                &lt;form>
+                    &lt;label>Title&lt;/label>
+                    &lt;input
                         type="text"
                         id="title"
                         name="title"
                         value={data.title}
                         onChange={this.editChange}
                     /> 
-                    {this.props.encourageMode &&
-                    <div>
-                    <label>Done Advance</label>
-                    <ThemeProvider theme={this.checkboxTheme}>
-                    <Switch
+                    {this.props.encourageMode &amp;&amp;
+                    &lt;div>
+                    &lt;label>Done Advance&lt;/label>
+                    &lt;ThemeProvider theme={this.checkboxTheme}>
+                    &lt;Switch
                         disabled={!data.checked}
                         checked={data.checked?data.encourage:false}
                         name="encourage"
@@ -214,14 +242,14 @@ class EditBoard extends Component {
                         color="secondary"
                         onChange={this.switchEncourageChange}
                         />
-                    </ThemeProvider>
-                    </div>}
-                    {this.props.enableTomato &&
-                    <div>
-                    <label>Tomato Time {data.tomatoNumber!==0?data.tomatoNumber:null}</label>
-                    <span>
-                    <ThemeProvider theme={this.checkboxTheme}>
-                    <Slider 
+                    &lt;/ThemeProvider>
+                    &lt;/div>}
+                    {this.props.enableTomato &amp;&amp;
+                    &lt;div>
+                    &lt;label>Tomato Time {data.tomatoNumber!==0?data.tomatoNumber:null}&lt;/label>
+                    &lt;span>
+                    &lt;ThemeProvider theme={this.checkboxTheme}>
+                    &lt;Slider 
                         // slider的数值
                         value={data.tomatoNumber}
                         //悬浮显示内容
@@ -238,52 +266,74 @@ class EditBoard extends Component {
                         id='tomatoNumber'
                         onChange={this.sliderChanged}
                     />
-                    </ThemeProvider>
+                    &lt;/ThemeProvider>
                     {/* inlinetomato模式使用todo.js的timing button禁用此处的 */}
-                    {!this.props.inlineTomato &&
-                    <Link to="/clock">
-                    <button onClick={this.tomatoButton}>
+                    {!this.props.inlineTomato &amp;&amp;
+                    &lt;Link to="/clock">
+                    &lt;button onClick={this.tomatoButton}>
                         Start Timing
-                    </button>   
-                    </Link>
+                    &lt;/button>   
+                    &lt;/Link>
                     }
-                    </span>
-                    </div>}
+                    &lt;/span>
+                    &lt;/div>}
                     {/* 重要程度设定 */}
-                    <label>Important</label>
-                    <ThemeProvider theme={this.checkboxTheme}>
-                    <Switch
+                    &lt;label>Important&lt;/label>
+                    &lt;ThemeProvider theme={this.checkboxTheme}>
+                    &lt;Switch
                         checked={data.propoty}
                         name="propoty"
                         id="propoty"
                         color="primary"
                         onChange={this.switchPropotyChange}
                         />
-                    </ThemeProvider>
-                    <label>Description</label>
+                    &lt;/ThemeProvider>
+                    &lt;label>Description&lt;/label>
                     {/* 文字框属性 */}
-                    <textarea
+                    &lt;textarea
                         type="text"
                         id="description"
                         name="body"
                         value={data.body}
                         onChange={this.editChange}
                     />   
-                    <span>
+                    &lt;span>
                         {/* 表单提交按钮 */}
-                        <input
+                        &lt;input
                             type="button"
                             value="Save"
                             onClick={this.editSubmit}
                         />
                         
-                    </span>
+                    &lt;/span>
         
-                </form>
-            </div>     
+                &lt;/form>
+            &lt;/div>     
         );
     
     }
 }
 
-export default EditBoard;
+export default EditBoard;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-filreExtensionRegexp.html">filreExtensionRegexp</a></li><li><a href="module-index.html">index</a></li><li><a href="module-reportWebVitals.html">reportWebVitals</a></li><li><a href="module-serviceWorkerRegistration.html">serviceWorkerRegistration</a></li></ul><h3>Classes</h3><ul><li><a href="About.html">About</a></li><li><a href="AddModule.html">AddModule</a></li><li><a href="App.html">App</a></li><li><a href="Clock.html">Clock</a></li><li><a href="CountDown.html">CountDown</a></li><li><a href="EditBoard.html">EditBoard</a></li><li><a href="InlineTomato.html">InlineTomato</a></li><li><a href="ListModule.html">ListModule</a></li><li><a href="Navibar.html">Navibar</a></li><li><a href="Settings.html">Settings</a></li><li><a href="Timer.html">Timer</a></li><li><a href="Todo.html">Todo</a></li></ul><h3>Global</h3><ul><li><a href="global.html#EncourageCheckbox">EncourageCheckbox</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Wed Jun 09 2021 17:40:53 GMT+0800 (Hong Kong Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

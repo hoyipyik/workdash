@@ -1,12 +1,20 @@
-/*程序的导航栏，链接了App.js中的react-router-dom的设定
- * 
- * 贺烨毅 2019210737
+/**
+ * 程序的导航栏，链接了App.js中的react-router-dom的设定
+ * @component
+ * @author 贺烨毅 2019210737
  */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//导航栏component
+/**
+ * 导航栏component
+ * 
+ * 程序的导航栏，链接了App.js中的react-router-dom的设定
+ * @author 贺烨毅 2019210737
+ */
 class Navibar extends Component {
-
+    /**
+     * render
+     */
     render() {
         return (
             <div className="container">

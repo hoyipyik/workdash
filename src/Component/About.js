@@ -1,12 +1,18 @@
-/*About说明
- * 
- * 贺烨毅 2019210737
+/**
+ * About说明
+ * @component
+ * @author 贺烨毅 2019210737
  */
 
 import React, { Component } from 'react';
-// 作者的信息和软件的使用说明的文字
+/**
+ * 作者的信息和软件的使用说明的文字
+ *  @author 贺烨毅 2019210737
+ */
 class About extends Component {
-
+    /**
+     * render
+     */
     render() {
         return (
             <div className="container">
