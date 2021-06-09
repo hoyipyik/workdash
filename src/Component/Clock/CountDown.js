@@ -1,5 +1,8 @@
-/*番茄倒计时的模块， 可以和todo的timing 按钮进行联动，显示剩余的番茄工作周期
+/**
+ * 番茄倒计时的模块， 可以和todo的timing 按钮进行联动，显示剩余的番茄工作周期
  * 倒计时的功能
+ * @component
+ * @example
  * 贺烨毅 2019210737
  */
 import React from 'react';

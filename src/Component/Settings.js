@@ -1,4 +1,5 @@
-/*设定界面 setting的component，进行功能选项的设置
+/**
+ * 设定界面 setting的component，进行功能选项的设置cd 
  * 
  * 贺烨毅 2019210737
  */
@@ -21,7 +22,8 @@ class Settings extends Component {
       });
 
     //分别更新四个设定参数
-
+    /**
+     */
     restrictModeMethod = ()=>{
         let restricMode = this.props.restrictMode;
         restricMode = !restricMode;
