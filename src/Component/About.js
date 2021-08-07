@@ -1,7 +1,18 @@
+/**
+ * About说明
+ * @component
+ * @author 贺烨毅 2019210737
+ */
+
 import React, { Component } from 'react';
-
+/**
+ * 作者的信息和软件的使用说明的文字
+ *  @author 贺烨毅 2019210737
+ */
 class About extends Component {
-
+    /**
+     * render
+     */
     render() {
         return (
             <div className="container">
@@ -47,7 +58,7 @@ class About extends Component {
                     <tr>If there were no bosses patroling around, </tr>
                     <tr>everyone would be happy showing off the fact 
                     of finishing work ahead of scheduled time.</tr>
-                    <tr>To be host, I am not rich enough to store your data on the cloud 
+                    <tr>To be honest, I am not rich enough to store your data on the cloud 
                     without selling them to your managers.</tr>
                     <tr>However, my coding level surely sucks, which will guarantee your privacy safety
                      because I have no ability to store data online.</tr>
@@ -65,7 +76,7 @@ class About extends Component {
                 {/* <h4>Clock</h4> */}
 
                 <hr/>
-                <p>Designed by HYY at BUPT</p>
+                <dd>Designed by HYY at BUPT</dd>
                 <br/>
             </div>
         );

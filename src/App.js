@@ -1,31 +1,57 @@
+
 import React, { Component } from 'react';
 import { Switch , Route} from 'react-router-dom';
 import Todo from "./Component/Todo/Todo";
-import Board from "./Component/Boards/Board";
 import Settings from "./Component/Settings";
 import Clock from "./Component/Clock/Clock";
 import Navibar from "./Component/Navibar";
 import About from "./Component/About"
-
+/**
+ *程序顶部的main组件，程序的main组件， 用作路由的设定和全局设定变量的储存
+ *作为最顶层的容器 
+ * @component
+ * @author 贺烨毅 2019210737
+ * 
+ */
 class App extends Component {
-
+  /**
+   * constructor function in React Lifecycle
+   * 构造函数
+   * @param  {object} props 本component的props
+   */
   constructor(props) {
     super(props);
+    //声明App的state
+    /**
+     * State of App
+     */
     this.state={
-      Times:0,
+      /**
+       * 番茄钟记时次数的变量存储
+       */
+      Times:0,   
+      /**
+       * 參數
+       */
       restrictMode:false,
       enableTomato:true,
       inlineTomato:true,
       encourageMode:true,
+      enableOrder:true, 
+      onlineMode: false
     }
   }
 
+  /**
+   * lifecycle函数 从localStorage读取先前存储的设定参数
+   */
   componentDidMount(){
     const documentEnableTomato = JSON.parse(localStorage.getItem("enableTomato"));
     const documentRestrictMode = JSON.parse(localStorage.getItem("restrictMode"));
     const documentInlineTomato = JSON.parse(localStorage.getItem("inlineTomato"));
     const documentEncourageMode = JSON.parse(localStorage.getItem("encourageMode"));
-    
+    const documentonlineMode = JSON.parse(localStorage.getItem("onlineMode"));
+    // 空值判断和对设定参数进行赋值
     if(documentEnableTomato!==null){
       this.setState({
         enableTomato:documentEnableTomato,
@@ -56,6 +82,17 @@ class App extends Component {
       })
     }
 
+    if(documentEncourageMode!==null){
+      this.setState({
+        onlineMode:documentonlineMode,
+      })
+    }else{
+      this.setState({
+        onlineMode:false,
+      })
+    }
+
+
     if(documentRestrictMode!==null){
       this.setState({
         restrictMode:documentRestrictMode,
@@ -67,7 +104,14 @@ class App extends Component {
     }
   }
 
-  componentDidUpdate(prevState){
+/**
+ * componentDidUpdate
+ * lifecycle函数 state中的数据出现变化之后，向localStorage对应的document赋值，相当于本地的储存环节
+ * 这里对应的也是四个设定参数的本地储存 
+ * @param  {object} prevState 前一个状态的state
+ * @memberof App
+ */
+componentDidUpdate(prevState){
     if(prevState.enableTomato!==this.state.enableTomato){
         localStorage.setItem("enableTomato",JSON.stringify( this.state.enableTomato));
     }
@@ -83,43 +127,94 @@ class App extends Component {
     if(prevState.encourageMode!==this.state.encourageMode){
       localStorage.setItem("encourageMode",JSON.stringify( this.state.encourageMode));
     }
-}
 
-  updateTomatoTimes = (item)=>{
+    if(prevState.onlineMode!==this.state.onlineMode){
+      localStorage.setItem("onlineMode",JSON.stringify( this.state.onlineMode));
+    }
+}
+  /**
+   * 番茄钟次数的赋值函数， 用于子模块调用
+   * @param  {number} item
+   * @function updateTomatoTimes
+   * @memberof App
+   */
+  updateTomatoTimes=(item)=>{
     this.setState({
       Times:item,
     })
   }
 
+
+  
+  /**
+   * 设定参数进行了回传的赋值，used for restrict mode
+   * @param  {boolean} item
+   * @function updateRestricMode
+   * @memberof App
+   */
   updateRestricMode = (item) =>{
     this.setState({
       restrictMode: item,
     })
   }
-
+  /**
+   * 设定参数进行了回传的赋值，used for enabletomato
+   * @param  {boolean} item
+   * @function updateEnableTomato
+   * @memberof App
+   */
   updateEnableTomato = (item) =>{
     this.setState({
       enableTomato:item,
     })
   }
 
+  /**
+   * 设定参数进行了回传的赋值，used for inlinetomato
+   * @param  {boolean} item
+   * @function updateInlineTomato
+   * @memberof App
+   */
   updateInlineTomato = (item) =>{
     this.setState({
       inlineTomato:item,
     })
   }
 
+  /**
+   * 设定参数进行了回传的赋值，used for encourageMode
+   * @param  {boolean} item
+   * @function updateEncourageMode
+   * @memberof App
+   */
   updateEncourageMode =(item)=>{
     this.setState({
       encourageMode:item,
     })
   }
 
+  /**
+   * 设定参数进行了回传的赋值，used for enableOrder
+   * @param  {boolean} item
+   * @function updateEnableOrder
+   * @memberof App
+   */
+  updateEnableOrder = item=>{
+    this.setState({
+      enableOrder:item
+    })
+  }
+  /**
+   * render函数， 进行显示， 此处主要是react-route-dom的路由的设定和参数的传递
+   * lifecycle method
+   */
   render() {
     return (
       <div className="container">
-        <Navibar/>
+        {/* 顶部导航栏 */}
+        <Navibar/>  
         <Switch>
+        {/* 路由的设定和向子component的props传递参数 */}
           <Route path="/workdash" target="_blank" rel="noopener noreferrer">
             <Todo
               Times ={this.state.Times}
@@ -128,11 +223,12 @@ class App extends Component {
               enableTomato={this.state.enableTomato}
               inlineTomato={this.state.inlineTomato}
               encourageMode={this.state.encourageMode}
+              enableOrder={this.state.enableOrder}
             />
           </Route>
-          <Route path="/board">
+          {/* <Route path="/board">
             <Board/>
-          </Route>
+          </Route> */}
           <Route path="/clock" target="_blank" rel="noopener noreferrer">
             <Clock
               Times ={this.state.Times}
@@ -151,6 +247,8 @@ class App extends Component {
               updateInlineTomato={this.updateInlineTomato}
               encourageMode={this.state.encourageMode}
               updateEncourageMode={this.updateEncourageMode}
+              enableOrder={this.state.enableOrder}
+              updateEnableOrder={this.updateEnableOrder}
               />
           </Route>
           <Route path="/about">
@@ -161,5 +259,5 @@ class App extends Component {
     );
   }
 }
-
+//导出App
 export default App;
