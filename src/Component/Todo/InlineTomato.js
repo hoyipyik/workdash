@@ -3,7 +3,7 @@
  * @component
  * @author 贺烨毅 2019210737
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import CountDown from "../Clock/CountDown"
 /**
@@ -12,7 +12,7 @@ import CountDown from "../Clock/CountDown"
  * inlinetomato组件的component 为了提高可读性 是todo.js的部分的第三部分的component
  * @author 贺烨毅 2019210737
  */
-class InlineTomato extends Component {
+class InlineTomato extends PureComponent {
     /**
      * constructor function
      * @param  {object} props

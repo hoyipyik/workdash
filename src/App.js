@@ -1,5 +1,4 @@
-
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Switch , Route} from 'react-router-dom';
 import Todo from "./Component/Todo/Todo";
 import Settings from "./Component/Settings";
@@ -13,7 +12,7 @@ import About from "./Component/About"
  * @author 贺烨毅 2019210737
  * 
  */
-class App extends Component {
+class App extends PureComponent {
   /**
    * constructor function in React Lifecycle
    * 构造函数
@@ -38,7 +37,7 @@ class App extends Component {
       inlineTomato:true,
       encourageMode:true,
       enableOrder:true, 
-      onlineMode: false
+      onlineMode: true,
     }
   }
 
@@ -193,6 +192,12 @@ componentDidUpdate(prevState){
     })
   }
 
+  updateOnlineMode = item =>{
+    this.setState({
+      onlineMode: item
+    })
+  }
+
   /**
    * 设定参数进行了回传的赋值，used for enableOrder
    * @param  {boolean} item
@@ -218,6 +223,7 @@ componentDidUpdate(prevState){
           <Route path="/workdash" target="_blank" rel="noopener noreferrer">
             <Todo
               Times ={this.state.Times}
+              onlineMode={this.state.onlineMode}
               updateTomatoTimes={this.updateTomatoTimes}
               restrictMode={this.state.restrictMode}
               enableTomato={this.state.enableTomato}
@@ -249,6 +255,8 @@ componentDidUpdate(prevState){
               updateEncourageMode={this.updateEncourageMode}
               enableOrder={this.state.enableOrder}
               updateEnableOrder={this.updateEnableOrder}
+              onlineMode={this.state.onlineMode}
+              updateOnlineMode={this.updateOnlineMode}
               />
           </Route>
           <Route path="/about">

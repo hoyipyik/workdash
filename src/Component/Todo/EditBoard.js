@@ -8,7 +8,7 @@
  * @component
  * 
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {Link} from 'react-router-dom';
 import {Switch, Slider} from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -23,7 +23,7 @@ import { blue, green} from '@material-ui/core/colors';
  * 设定番茄工作周期， 直接进行番茄钟的联动触发。
  * @author 贺烨毅 2019210737
  */
-class EditBoard extends Component {
+class EditBoard extends PureComponent {
 //state初始化 设定参数的接收
     /**
      * constructor function of the component

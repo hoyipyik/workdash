@@ -3,7 +3,7 @@
  * @component
  * @author 贺烨毅 2019210737
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {Switch} from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { blue, green} from '@material-ui/core/colors';
@@ -13,7 +13,7 @@ import { blue, green} from '@material-ui/core/colors';
  * 链接了App.js中的react-router-dom的设定
  * @author 贺烨毅 2019210737
  */
-class Settings extends Component {
+class Settings extends PureComponent {
     /**
      * 设定switch组建的样式
      */
@@ -67,6 +67,12 @@ class Settings extends Component {
         let inlineTomato = this.props.inlineTomato;
         inlineTomato = !inlineTomato;
         this.props.updateInlineTomato(inlineTomato);
+    }
+
+    onlineModeMethod = ()=>{
+        let onlineMode = this.props.onlineMode;
+        onlineMode = !onlineMode;
+        this.props.updateOnlineMode(onlineMode);
     }
 
     /**
@@ -162,6 +168,18 @@ class Settings extends Component {
                             id="encourageMode"
                             color="primary"
                             onChange={this.encourageModeMethod}
+                        />
+                    </ThemeProvider>
+                </span>
+                <span>
+                    <label>Online Mode</label>
+                    <ThemeProvider theme={this.switchTheme}>
+                        <Switch
+                            checked={this.props.onlineMode}
+                            name="onlineMode"
+                            id="onlineMode"
+                            color="secondary"
+                            onChange={this.onlineModeMethod}
                         />
                     </ThemeProvider>
                 </span>

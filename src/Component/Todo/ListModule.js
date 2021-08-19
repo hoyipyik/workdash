@@ -6,7 +6,7 @@
  *@author 贺烨毅 2019210737
  */
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Checkbox ,Switch} from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { blue, green } from '@material-ui/core/colors';
@@ -36,7 +36,7 @@ const EncourageCheckbox = withStyles({
  * @author 贺烨毅 2019210737
  */
 
-class ListModule extends Component {
+class ListModule extends PureComponent {
     //state的声明
     
     /**

@@ -4,7 +4,7 @@
  * 
  * @author 贺烨毅 2019210737
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import CountDown from '../Clock/CountDown';
 import InlineTomato from "./InlineTomato";
 import AddModule from "./AddModule";
@@ -19,7 +19,7 @@ import axios from 'axios';
  * 存放todoData数组， 顶层函数和一些临时的参数 
  * @author 贺烨毅 2019210737
  */
-class Todo extends Component {
+class Todo extends PureComponent {
     //初始化state 同时接收App.js传来的设定参数
     /**
      * constructor of component
@@ -49,7 +49,29 @@ class Todo extends Component {
  * 
  */
 componentDidMount(){
-    const documentData = JSON.parse(localStorage.getItem("todo"))
+    const onlineMode = this.props.onlineMode
+    console.log(onlineMode, "#$%^&*((^%$#$%^&*(*&^#$%^&**&^%$")
+    if(onlineMode){
+        console.log("Mount")
+        axios.get("https://chatapp-hyy-default-rtdb.asia-southeast1.firebasedatabase.app/todo.json")
+            .then(responce=>{
+                const rawData = Object.values(responce.data)
+                const data = rawData[rawData.length-1]
+                console.log("[Todo.js]: GET" ,data)
+                if(data[0].title==="DEMO"){
+                    this.setState({
+                        todoData: []
+                    })
+                }else
+                this.setState({
+                    todoData: [...data]
+                })
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+    }else{
+        const documentData = JSON.parse(localStorage.getItem("todo"))
     if (documentData !== null){
       this.setState({
         todoData:documentData,
@@ -108,15 +130,41 @@ componentDidMount(){
       })
     }
     }
+    
+    }
 
     
     /**
      * 如果state的todoData的内容变化， 同步更新localStorage中储存的值
      * @param  {object} prevState fromer state of component
      */
-    componentDidUpdate(prevState){
+    componentDidUpdate(prevProps,prevState){
         if(prevState.todoData!==this.state.todoData){
-            localStorage.setItem("todo",JSON.stringify( this.state.todoData));
+            const onlineMode = this.props.onlineMode
+            console.log(onlineMode)
+            if(onlineMode){
+                let data = this.state.todoData
+                console.log("Debug whiteSpace", this.state.todoData)
+                if(data.length === 0){
+                    data = [{
+                        id:null,
+                        checked:false,
+                        title:"DEMO",
+                        tomatoNumber:null,
+                        body:"",
+                        propoty:null,
+                        encourage:null,
+                    }]
+                    console.log("DEMO changed", data)
+                }
+                axios.post("https://chatapp-hyy-default-rtdb.asia-southeast1.firebasedatabase.app/todo.json", data)
+                    .then(responce=>{
+                        console.log("[Todo.js]: Post", responce)
+                    })
+                    .catch(error=>{
+                        console.log(error)
+                    })
+            }else localStorage.setItem("todo",JSON.stringify( this.state.todoData));
         }
     }
 

@@ -3,7 +3,7 @@
  * @component
  * @author 贺烨毅 2019210737
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 /**
  * 导航栏component
@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
  * 程序的导航栏，链接了App.js中的react-router-dom的设定
  * @author 贺烨毅 2019210737
  */
-class Navibar extends Component {
+class Navibar extends PureComponent {
     /**
      * render
      */

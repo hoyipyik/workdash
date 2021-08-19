@@ -4,7 +4,7 @@
  * @author 贺烨毅 2019210737
  * 
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 /**
  * todo部分的任务添加的component. 
@@ -13,7 +13,7 @@ import React, { Component } from 'react';
  * @author 贺烨毅 2019210737
  */ 
 
-class AddModule extends Component {
+class AddModule extends PureComponent {
     /**
      * constructor function of class
      * @param  {object} props the props of this component
@@ -64,7 +64,7 @@ class AddModule extends Component {
         return (
             <form>
                 <label htmlFor="title">
-                    <h5>What's Your Plan Today</h5>
+                    <h2>What's Your Plan Today</h2>
                 </label>
                 <input
                 // input组件
