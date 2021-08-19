@@ -73,8 +73,14 @@ class About extends Component {
                     <tr>Click at the task to see its propotions and edit it.</tr>
                     <tr>You can set tomato clock time to each task use interactive tomato clock.</tr>
                 </p>
-                {/* <h4>Clock</h4> */}
-
+                <h4>Online Mode</h4>
+                <p>
+                    <tr>Online Mode will store data on the database provided by firebase</tr>
+                    <tr>Offline Mode and Online Mode are seperatted</tr>
+                    <tr>OlineMode won't send your offline mode data to the database, at the same time
+                        you won't fetch offline data from online
+                    </tr>
+                </p>
                 <hr/>
                 <dd>Designed by HYY at BUPT</dd>
                 <br/>
